@@ -1,0 +1,44 @@
+<?php
+/**
+ * Template Name: Contact
+ * Template Post Type: page
+ *
+ * @package StudioGreen
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
+get_header();
+
+$sg_email    = sg_field( 'email' );
+$sg_typeform = trim( sg_field( 'typeform_id' ) );
+?>
+
+<!-- ===== HERO ===== -->
+<header class="page-hero" data-screen-label="Contact — Hero">
+	<div class="wrap" data-reveal-group>
+		<h1 class="t-display" data-lines><?php sg_the_field( 'hero_title' ); ?></h1>
+		<p class="t-manifesto page-hero__lead" data-lines><?php sg_the_field( 'hero_lead' ); ?></p>
+	</div>
+</header>
+
+<!-- ===== FORM ===== -->
+<main class="enquire" data-screen-label="Contact — Form">
+	<div class="wrap enquire__grid">
+		<div class="enquire__direct">
+			<p><?php sg_the_field( 'direct_intro' ); ?></p>
+			<a class="t-manifesto enquire__email" href="mailto:<?php echo esc_attr( $sg_email ); ?>"><?php echo esc_html( $sg_email ); ?></a>
+			<p><?php sg_the_field( 'direct_note' ); ?></p>
+		</div>
+		<?php if ( '' !== $sg_typeform ) : ?>
+			<div class="enquire__form">
+				<div data-tf-live="<?php echo esc_attr( $sg_typeform ); ?>" style="width:100%;height:min(74vh,660px);"></div>
+			</div>
+		<?php endif; ?>
+	</div>
+</main>
+
+<?php
+get_footer();

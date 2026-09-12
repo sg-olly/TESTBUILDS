@@ -1,0 +1,28 @@
+/* Studio Green: About page */
+/* ---------- About page ---------- */
+.manifesto {
+  background: var(--forest);
+  color: #fff;
+  padding-block: clamp(88px, 14vh, 200px);
+}
+.manifesto .t-manifesto { max-width: 40ch; }
+.manifesto__copy p + p { margin-top: clamp(24px, 3vh, 40px); }
+.manifesto__stats {
+  margin-top: clamp(64px, 10vh, 140px);
+  border-top: 1px solid rgba(255, 255, 255, 0.24);
+  padding-top: clamp(28px, 4vh, 52px);
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  justify-content: space-between;
+  gap: 32px 24px;
+}
+.stat-item { display: flex; flex-direction: column; gap: 12px; }
+@media (max-width: 700px) {
+  .manifesto__stats { grid-template-columns: 1fr; }
+}
+
+.how { padding-block: clamp(56px, 9vh, 140px); }
+.how-index { list-style: none; margin: 0; padding: 0; }
+.how-index li { border-top: 1px solid var(--line); padding-block: clamp(28px, 4.5vw, 64px); }
+.how-index li:last-child { border-bottom: 1px solid var(--line); }
+.how-index p { margin-top: clamp(12px, 1.6vw, 22px); max-width: 56ch; }

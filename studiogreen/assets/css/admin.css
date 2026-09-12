@@ -1,0 +1,55 @@
+/* Studio Green: content meta box */
+
+#sg-content .sg-intro {
+  margin: 0 0 4px;
+  color: #50575e;
+}
+
+#sg-content .sg-group {
+  border-top: 1px solid #dcdcde;
+  padding-top: 4px;
+  margin-top: 20px;
+}
+
+#sg-content .sg-group__title {
+  margin: 12px 0 4px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #1d2327;
+}
+
+#sg-content .sg-field {
+  margin: 0 0 16px;
+}
+
+#sg-content .sg-field label {
+  display: block;
+  margin-bottom: 4px;
+}
+
+#sg-content .sg-help {
+  display: block;
+  margin-top: 4px;
+}
+
+#sg-content textarea {
+  resize: vertical;
+}
+
+/* Two columns once there is room, so long repeating blocks stay scannable. */
+@media (min-width: 1100px) {
+  #sg-content .sg-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 24px;
+  }
+  #sg-content .sg-group__title {
+    grid-column: 1 / -1;
+  }
+  #sg-content .sg-field--textarea,
+  #sg-content .sg-field--list {
+    grid-column: 1 / -1;
+  }
+}
