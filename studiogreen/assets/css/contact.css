@@ -3,7 +3,12 @@
 .enquire { padding-bottom: clamp(72px, 12vh, 180px); }
 .enquire__grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  /* Not 50/50. The left column is three short lines, while the Typeform embed
+     switches to its narrow phone layout below roughly 640px wide. An even split
+     of a 1480px wrap never gave it more than ~610px, so it rendered narrow on
+     every desktop. The left column takes a fixed measure and the form takes
+     what is left. */
+  grid-template-columns: minmax(0, 26rem) minmax(0, 1fr);
   gap: clamp(36px, 6vw, 96px);
   align-items: start;
   border-top: 1px solid var(--line);
@@ -14,6 +19,11 @@
 .enquire__email {
   display: inline-block;
   margin-block: clamp(16px, 2.5vh, 28px) 0;
+  /* Sized to fit the domain on one line in this column. At the full
+     .t-manifesto size it overflowed and broke mid-word. `anywhere` stays as the
+     last resort for very narrow screens; the <wbr> after the @ in the template
+     gives it a sensible place to break first. */
+  font-size: clamp(1.15rem, 2vw, 1.85rem);
   overflow-wrap: anywhere;
   text-decoration: underline;
   text-decoration-color: rgba(11, 16, 11, 0.25);
@@ -27,6 +37,8 @@
 .enquire__form [data-tf-live] { width: 100%; height: min(74vh, 660px); }
 .enquire__form iframe { width: 100% !important; height: 100% !important; border: 0; }
 
-@media (max-width: 900px) {
+/* Collapsed earlier than the old 900px: below this the two columns cannot give
+   the form 640px, and stacked it gets the full width, which suits it better. */
+@media (max-width: 1250px) {
   .enquire__grid { grid-template-columns: 1fr; }
 }
