@@ -151,6 +151,8 @@ function sg_structured_data() {
 	$data = array(
 		'@context'    => 'https://schema.org',
 		'@type'       => 'ProfessionalService',
+		// Referenced as the provider by the Service nodes in schema.php.
+		'@id'         => home_url( '/' ) . '#organization',
 		'name'        => get_bloginfo( 'name' ),
 		'url'         => home_url( '/' ),
 		'description' => wp_strip_all_tags( sg_meta_description() ),
