@@ -8,6 +8,14 @@ voice) plus proselint and write-good, over every page at once.
     python3 bin/copy-review.py            # summary
     python3 bin/copy-review.py --detail   # every flagged sentence
 
+First run needs the two linters, neither of which ships in the theme:
+
+    npm install            # write-good
+    pip install proselint
+
+Both are optional. Without them the readability figures and the hard-sentence
+list still work, since those are computed here.
+
 These tools are blunt instruments for marketing copy. They score plain
 expository prose; they will flag a deliberate fragment, a passive that reads
 better than its active ("Built from scratch"), and an adverb doing real work.

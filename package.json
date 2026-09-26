@@ -1,0 +1,11 @@
+{
+  "name": "studiogreen-tooling",
+  "private": true,
+  "description": "Dev-only tooling for the Studio Green theme. Not shipped in the theme zip.",
+  "scripts": {
+    "review": "python3 bin/copy-review.py"
+  },
+  "dependencies": {
+    "write-good": "^1.0.8"
+  }
+}
