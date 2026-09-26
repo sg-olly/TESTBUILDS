@@ -55,7 +55,7 @@ function sg_schema() {
 							'label'   => __( 'Intro paragraph', 'studiogreen' ),
 							'type'    => 'textarea',
 							'plain'   => true,
-							'default' => 'An independent marketing and web design studio. I build sites from scratch, and I keep them working after launch.',
+							'default' => 'An independent marketing and web design studio. Built from scratch, then kept fast, fresh and easy to find.',
 						),
 					),
 				),
@@ -159,7 +159,7 @@ function sg_schema() {
 								'label'   => __( 'Second paragraph', 'studiogreen' ),
 								'type'    => 'textarea',
 								'plain'   => true,
-								'default' => 'A brochure is out of date the day it\'s printed. A website does not have to be, as long as somebody keeps it up to date as the business changes. That is the part I carry on doing after launch.',
+								'default' => 'A brochure is out of date the day it\'s printed. A website doesn\'t have to be, as long as someone keeps it current as the business changes. That\'s the bit I keep doing after launch.',
 							),
 						),
 						sg_stat_fields(
@@ -169,8 +169,8 @@ function sg_schema() {
 									'label' => 'Years in marketing',
 								),
 								2 => array(
-									'value' => '1',
-									'label' => 'Person on your project, start to finish',
+									'value' => '100%',
+									'label' => 'Custom, never templated',
 								),
 								3 => array(
 									'value' => 'SEMrush',
@@ -381,8 +381,8 @@ function sg_schema() {
 									'label' => 'Years of hands-on experience',
 								),
 								2 => array(
-									'value' => '0',
-									'label' => 'Account managers between us',
+									'value' => '100%',
+									'label' => 'Custom, never a template',
 								),
 								3 => array(
 									'value' => 'SEMrush',
