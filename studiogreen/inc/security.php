@@ -1,6 +1,6 @@
 <?php
 /**
- * Security headers, ported from the site's Netlify _headers file.
+ * Security headers, sent on front-end requests.
  *
  * @package StudioGreen
  */

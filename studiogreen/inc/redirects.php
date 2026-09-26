@@ -1,6 +1,6 @@
 <?php
 /**
- * Redirects from the old static URLs.
+ * Redirects from the site's previous .html URLs.
  *
  * @package StudioGreen
  */
@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Old path (no leading slash) => page key.
+ * Previous path (no leading slash) => page key.
  *
  * @return array
  */
@@ -30,7 +30,7 @@ function sg_legacy_urls() {
 }
 
 /**
- * Send a 301 when a request matches an old static URL.
+ * Send a 301 when a request matches one of those URLs.
  */
 function sg_legacy_redirect() {
 	if ( ! is_404() || ! isset( $_SERVER['REQUEST_URI'] ) ) {

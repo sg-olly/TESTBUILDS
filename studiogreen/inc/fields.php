@@ -92,7 +92,7 @@ function sg_flat_fields( $template_key ) {
 }
 
 /**
- * Read a field's raw value, falling back to the wording from the static site.
+ * Read a field's raw value, falling back to the wording it launched with.
  *
  * @param string   $key     Field key.
  * @param int|null $post_id Page ID, defaults to the current post.

@@ -79,7 +79,7 @@ function sg_page_stylesheet() {
  * Enqueue front-end styles and scripts.
  */
 function sg_enqueue_assets() {
-	// Switzer, served by Fontshare exactly as the static site did.
+	// Switzer, the display and body face, served by Fontshare.
 	wp_enqueue_style(
 		'sg-fonts',
 		'https://api.fontshare.com/v2/css?f%5B%5D=switzer@400,500,600,700&display=swap',
@@ -132,7 +132,7 @@ function sg_enqueue_assets() {
 add_action( 'wp_enqueue_scripts', 'sg_enqueue_assets' );
 
 /**
- * Preconnect to the Fontshare hosts, as the static site's <head> did.
+ * Preconnect to the Fontshare hosts, so the webfont starts loading sooner.
  *
  * @param array  $urls           URLs to print.
  * @param string $relation_type  Relation being processed.

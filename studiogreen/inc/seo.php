@@ -30,7 +30,7 @@ function sg_seo_plugin_active() {
 }
 
 /**
- * Use a colon in document titles, as the static site did ("Web: Studio Green").
+ * Use a colon in document titles, e.g. "Web: Studio Green".
  *
  * @return string
  */
