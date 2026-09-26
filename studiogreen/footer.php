@@ -16,6 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<span>
 			<?php
 			printf(
+				/* translators: 1: year, 2: site name. */
 				esc_html__( '© %1$s %2$s', 'studiogreen' ),
 				esc_html( gmdate( 'Y' ) ),
 				esc_html( get_bloginfo( 'name' ) )

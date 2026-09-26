@@ -17,6 +17,7 @@ get_header();
 		<h1 class="t-display" data-lines>
 			<?php
 			if ( is_search() ) {
+				/* translators: %s: search term. */
 				printf( esc_html__( 'Results for %s', 'studiogreen' ), esc_html( get_search_query() ) );
 			} elseif ( is_archive() ) {
 				echo esc_html( wp_strip_all_tags( get_the_archive_title() ) );

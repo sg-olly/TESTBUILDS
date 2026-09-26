@@ -29,6 +29,7 @@ while ( have_posts() ) :
 				<p class="page-hero__updated">
 					<?php
 					printf(
+						/* translators: %s: month and year. */
 						esc_html__( 'Last updated: %s', 'studiogreen' ),
 						esc_html( $sg_updated )
 					);

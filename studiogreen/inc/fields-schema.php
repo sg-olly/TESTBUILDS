@@ -630,6 +630,7 @@ function sg_repeat_fields( $prefix, $count, $fields, $defaults ) {
 		foreach ( $fields as $field ) {
 			$sub          = $field['key'];
 			$field['key'] = "{$prefix}_{$i}_{$sub}";
+			/* translators: 1: item number, 2: field label. */
 			$field['label']   = sprintf( __( '%1$d. %2$s', 'studiogreen' ), $i, $field['label'] );
 			$field['default'] = isset( $defaults[ $i ][ $sub ] ) ? $defaults[ $i ][ $sub ] : '';
 			$out[]            = $field;
