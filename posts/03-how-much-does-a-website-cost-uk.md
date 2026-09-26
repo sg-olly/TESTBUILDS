@@ -9,7 +9,7 @@ Internal links:   /web/, /web/#updates, /contact/
 
 # How much does a website cost in the UK?
 
-If you're asking how much a website costs in the UK, you've probably already read four pages that said "it depends" and then asked you to book a call. Fair enough — it does depend. But that's a useless answer when you're trying to work out whether you need £1,000 or £10,000, so here are the actual figures, and then the honest explanation of why the range is so wide.
+If you're asking how much a website costs in the UK, you've probably already read four pages that said "it depends" and then asked you to book a call. Fair enough, it does depend. But that's a useless answer when you're trying to work out whether you need £1,000 or £10,000, so here are the actual figures, and then the honest explanation of why the range is so wide.
 
 Quick note on where these come from: they're gathered from UK agencies and freelancers publishing about their own market in 2026. That means they show what gets quoted, not independent research, and everyone publishing them has an interest. Treat them as a map, not a measurement.
 
@@ -41,17 +41,17 @@ Because "a website" describes jobs that differ by a factor of twenty.
 
 A five-page site for a plumber who needs to look credible and take phone calls is a genuinely different product from a site that has to take bookings, sync with a stock system, handle payments and work in two languages. Both are websites. One is a fortnight and one is three months.
 
-The other reason is that the biggest variable isn't the website at all — it's how much of the work you're doing. A client who arrives with their copy written, their photographs taken and a clear idea of what the site is for might pay half what an otherwise identical client pays, because half the project was content and they'd already done it.
+The other reason is that the biggest variable isn't the website at all, it's how much of the work you're doing. A client who arrives with their copy written, their photographs taken and a clear idea of what the site is for might pay half what an otherwise identical client pays, because half the project was content and they'd already done it.
 
 ## What genuinely moves the price
 
-**Bespoke or template.** A template with your logo dropped in is the cheap end, and it's cheap because the design decisions were made once and sold a hundred times. It's also why so many small business sites in the same trade look oddly similar. A site designed around what your business actually needs a visitor to do costs more because someone spent the time. [That's the distinction I work on](/web/) — but be clear that "bespoke" is a real cost, not a buzzword, and if your needs are genuinely simple a good template site is not a swindle.
+**Bespoke or template.** A template with your logo dropped in is the cheap end, and it's cheap because the design decisions were made once and sold a hundred times. It's also why so many small business sites in the same trade look oddly similar. A site designed around what your business actually needs a visitor to do costs more because someone spent the time. [That's the distinction I work on](/web/). Be clear that "bespoke" is a real cost rather than a buzzword though, and if your needs are genuinely simple a good template site is not a swindle.
 
 **Page count, but less than you'd think.** Going from five pages to eight is a small change. Going from eight to eighty is a different project. The first few pages carry most of the design work; after that you're filling in a system that already exists.
 
 **Content.** The single most underestimated line. Writing the words for a five-page site properly takes longer than people expect, and photography of your actual premises, team and work beats stock images so comprehensively that it's usually worth paying for. If neither is in your quote, you're doing both.
 
-**Selling things.** Adding ecommerce is a step change, not an increment — products, variants, stock, delivery rules, payments, tax, refunds, and a legal obligation to get several of them right. Budget for it separately.
+**Selling things.** Adding ecommerce is a step change rather than an increment: products, variants, stock, delivery rules, payments, tax, refunds, and a legal obligation to get several of them right. Budget for it separately.
 
 **Integrations.** Booking systems, CRMs, accounting software, membership areas. Each one is a connection that has to be built, tested and then maintained when the other end changes.
 
@@ -63,11 +63,11 @@ The build price is the number everyone compares. The running cost is the one tha
 
 Domain renewal is trivial. Hosting is modest. The one that varies is maintenance, and it varies because it's the line people cut first.
 
-A site nobody updates doesn't stay as it is — it drifts. Plugins go unpatched and become a known target. Rankings slide as competitors move and you don't. Your prices and services go out of date and you end up correcting your own website on the phone. [Looking after a site](/web/#updates) is the least interesting thing on any quote and the one with the clearest return, which is an awkward combination when you're trying to trim a budget.
+A site nobody updates doesn't stay as it is. It drifts. Plugins go unpatched and become a known target. Rankings slide as competitors move and you don't. Your prices and services go out of date and you end up correcting your own website on the phone. [Looking after a site](/web/#updates) is the least interesting thing on any quote and the one with the clearest return, which is an awkward combination when you're trying to trim a budget.
 
 ## What a cheap site costs you later
 
-Not a moral point, a practical one. The cheapest option is sometimes correct — if you're testing whether a business idea has legs, spending £4,000 on a website first is bad sequencing.
+This is a practical point rather than a moral one. The cheapest option is sometimes correct. If you're testing whether a business idea has legs, spending £4,000 on a website first is bad sequencing.
 
 But the failure modes of a very cheap site are consistent enough to name:
 
@@ -81,7 +81,7 @@ Work through this and the gap usually explains itself:
 
 1. **Is content included?** Copywriting and photography, or is that yours? This alone can be the whole difference.
 2. **Bespoke design, or a template?** Ask directly. Ask to see two sites they've built for businesses like yours and notice whether they're the same underneath.
-3. **What happens after launch?** Updates, backups, monitoring — included, extra, or not offered?
+3. **What happens after launch?** Updates, backups and monitoring: included, extra, or not offered?
 4. **What's excluded?** Domain, hosting past year one, plugin licences, stock images, ongoing SEO. Get the list.
 5. **Do you own it?** Domain in your name, hosting transferable, admin access to your own site, files that are yours.
 6. **Did they ask what the site is for?** Anyone quoting without asking is pricing pages, not outcomes.
@@ -90,10 +90,10 @@ Six questions, and a £3,000 gap turns into "one of these includes £2,000 of co
 
 ## What I'd tell you if you rang up
 
-I don't publish a price list, and the reason isn't coyness — it's that packaged pricing means someone always pays for things they don't need. A three-page site for a new business and a rebuild for a firm with fifteen services aren't the same job, and pretending they are just means one of you is subsidising the other.
+I don't publish a price list, and the reason isn't coyness. Packaged pricing means someone always pays for things they don't need. A three-page site for a new business and a rebuild for a firm with fifteen services aren't the same job, and pretending they are just means one of you is subsidising the other.
 
 What you get instead is a fixed quote before anything starts, based on what you actually want, with the excluded items named so there's nothing to discover later. If your budget doesn't reach what you've described, I'll say so and tell you what would fit it, which is a more useful conversation than a discount.
 
-So the genuinely honest answer to how much a website costs in the UK: somewhere between £2,000 and £5,000 for a small business site built properly, plus a few hundred a year to keep it working — and the only way to narrow that is to describe the job.
+So the genuinely honest answer to how much a website costs in the UK: somewhere between £2,000 and £5,000 for a small business site built properly, plus a few hundred a year to keep it working. The only way to narrow that is to describe the job.
 
 [Describe the job](/contact/) and you'll get a number back.

@@ -55,7 +55,7 @@ function sg_schema() {
 							'label'   => __( 'Intro paragraph', 'studiogreen' ),
 							'type'    => 'textarea',
 							'plain'   => true,
-							'default' => 'An independent marketing and web design studio. Built from scratch, kept found, fresh and working hard. No templates.',
+							'default' => 'An independent marketing and web design studio. I build sites from scratch, and I keep them working after launch.',
 						),
 					),
 				),
@@ -66,7 +66,7 @@ function sg_schema() {
 							'key'     => 'marquee_items',
 							'label'   => __( 'Ticker items', 'studiogreen' ),
 							'type'    => 'list',
-							'default' => "Built to be found\nSEMrush certified\nHubSpot certified\nCustom design\nNo templates\nBuilt from scratch\nFast turnaround\nKept working hard",
+							'default' => "SEMrush certified\nHubSpot certified\nNo templates\nFixed quotes, agreed up front\nOne person, start to finish\nReplies within a working day\nBuilt to be found",
 							'help'    => __( 'One per line. The list is repeated automatically so the scroll loops seamlessly.', 'studiogreen' ),
 						),
 					),
@@ -93,7 +93,7 @@ function sg_schema() {
 								'label'   => __( 'Section header', 'studiogreen' ),
 								'type'    => 'text',
 								'plain'   => true,
-								'default' => 'Everything your brand needs under one roof',
+								'default' => 'Web, SEO and brand, handled by one person',
 								'help'    => __( 'Heads the lime block, one size step above the four rows beneath it.', 'studiogreen' ),
 							),
 						),
@@ -159,7 +159,7 @@ function sg_schema() {
 								'label'   => __( 'Second paragraph', 'studiogreen' ),
 								'type'    => 'textarea',
 								'plain'   => true,
-								'default' => 'Your site should be your hardest-working team member, not a brochure you built once and forgot. That\'s why every build here starts from scratch and stays looked after.',
+								'default' => 'A brochure is out of date the day it\'s printed. A website does not have to be, as long as somebody keeps it up to date as the business changes. That is the part I carry on doing after launch.',
 							),
 						),
 						sg_stat_fields(
@@ -169,8 +169,8 @@ function sg_schema() {
 									'label' => 'Years in marketing',
 								),
 								2 => array(
-									'value' => '100%',
-									'label' => 'Custom, never templated',
+									'value' => '1',
+									'label' => 'Person on your project, start to finish',
 								),
 								3 => array(
 									'value' => 'SEMrush',
@@ -322,7 +322,7 @@ function sg_schema() {
 					),
 				),
 				'close_line'     => 'Priced for what you actually need.',
-				'close_body'     => 'A full identity, a set of templates, or a stack of print: tell me what you\'re after and you\'ll get a fixed price back for exactly that, not a bundled package built for someone else\'s business.',
+				'close_body'     => 'A full identity, a set of social and email designs, or a stack of print: tell me what you\'re after and you\'ll get a fixed price back for exactly that, not a bundled package built for someone else\'s business.',
 				'close_cta'      => 'Get a quote',
 				'close_cta_url'  => '{contact}',
 			)
@@ -381,8 +381,8 @@ function sg_schema() {
 									'label' => 'Years of hands-on experience',
 								),
 								2 => array(
-									'value' => '100%',
-									'label' => 'Custom, never a template',
+									'value' => '0',
+									'label' => 'Account managers between us',
 								),
 								3 => array(
 									'value' => 'SEMrush',
@@ -476,7 +476,7 @@ function sg_schema() {
 							'label'   => __( 'Intro paragraph', 'studiogreen' ),
 							'type'    => 'textarea',
 							'plain'   => true,
-							'default' => 'A few details is all I need to get started properly. I\'ll reply within one working day with actual thoughts, not a template response.',
+							'default' => 'A few details is all I need to get started properly. You\'ll get a reply within one working day, written by me, about your project.',
 						),
 					),
 				),
@@ -487,7 +487,7 @@ function sg_schema() {
 							'key'     => 'direct_intro',
 							'label'   => __( 'Above the address', 'studiogreen' ),
 							'type'    => 'textarea',
-							'default' => 'Prefer email? Reach me directly, any time.',
+							'default' => 'Rather just email? That reaches me directly.',
 						),
 						array(
 							'key'     => 'email',
@@ -500,7 +500,7 @@ function sg_schema() {
 							'key'     => 'direct_note',
 							'label'   => __( 'Below the address', 'studiogreen' ),
 							'type'    => 'textarea',
-							'default' => 'No spam, ever. What you send stays between us.',
+							'default' => 'No mailing list and no follow-up sequence. What you send stays between us.',
 						),
 					),
 				),
@@ -540,9 +540,9 @@ function sg_schema() {
 
 	$descriptions = array(
 		'home'    => 'Studio Green is an independent marketing studio. Engaging web design & build, ongoing site updates, SEO and content, no templates, fast turnaround.',
-		'web'     => 'Web design & build, ongoing site updates & care, and SEMrush-certified SEO. Custom work, no templates, fast turnaround.',
-		'design'  => 'Brand identity, email & social design, and print & merch. A brand that looks like you meant it, online and off. Custom work, no templates.',
-		'about'   => 'Studio Green is an independent marketing & web design studio. Nearly five years\' experience, SEMrush-certified, no templates, fast turnarounds.',
+		'web'     => 'Web design and build, ongoing site care, and SEMrush-certified SEO. Built from scratch for one business, then kept up to date.',
+		'design'  => 'Brand identity, email and social design, print and merch. A brand that looks like you meant it, on screen and off.',
+		'about'   => 'Studio Green is an independent marketing and web design studio. Nearly five years in the trade, SEMrush-certified, and you deal with me directly.',
 		'contact' => 'Tell Studio Green about your project. Web design & build, site updates, SEO and content for small businesses and independents.',
 		'legal'   => '',
 	);

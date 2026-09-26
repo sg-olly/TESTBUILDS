@@ -2,7 +2,7 @@
 Title:            Questions to Ask a Web Designer Before You Hire One
 Slug:             questions-to-ask-a-web-designer
 Focus keyphrase:  questions to ask a web designer
-Meta description: The questions to ask a web designer before you sign anything — who owns the files, what happens after launch, and what "SEO included" actually means.
+Meta description: The questions to ask a web designer before you sign anything: who owns the files, what happens after launch, and what "SEO included" actually means.
 Excerpt:          Most of these questions are uncomfortable to answer badly. That's the point of asking them before you've paid a deposit rather than after.
 Internal links:   /web/, /about/, /contact/
 ---
@@ -19,7 +19,7 @@ Here are the ones worth asking, and roughly what a straight answer sounds like.
 
 Ask this first. It tells you more than anything else on the list.
 
-You want to own your domain name, registered to you, in an account with your name on it. You want your hosting in your name, or at minimum transferable on request without a fight. You want administrator access to your own website. And you want the files — the actual site, not a login to somebody's platform that stops existing when you stop paying.
+You want to own your domain name, registered to you, in an account with your name on it. You want your hosting in your name, or at minimum transferable on request without a fight. You want administrator access to your own website. And you want the files: the actual site, rather than a login to somebody's platform that stops existing when you stop paying.
 
 A good answer is boring: yes, it's all yours, here are the logins. A bad answer has friction in it. "We manage all that for you" can be a genuine service or it can be a lock-in, and the way to tell is to ask what happens if you want to move. If that question produces hesitation, you've learned something important for the price of asking.
 
@@ -33,7 +33,7 @@ There's nothing wrong with a team, and nothing automatically better about one pe
 
 The thing to watch for is the gap between the person who sells you the project and the person who builds it. When those are different people with an account manager in between, a two-minute question can take three days and come back answering something slightly different. If you're a small business and you want to be able to say "can we just change that headline", you want a short line.
 
-I'm a one-person studio, so I'd obviously say that. But ask anyway, of anyone — including me — because the answer tells you what working together will actually feel like.
+I'm a one-person studio, so I'd obviously say that. But ask anyway, of anyone, including me, because the answer tells you what working together will actually feel like.
 
 ## "What happens after it goes live?"
 
@@ -41,13 +41,13 @@ Launch feels like the finish line. It's the point where most of the problems sta
 
 Ask specifically: who applies updates, who takes backups, who notices if the site goes down, and who fixes it when a plugin update breaks the contact form at 8pm on a Friday. Then ask whether that's included, optional, or simply not offered.
 
-All three of those are acceptable answers. "Not offered" is fine if you know it, because you can arrange it elsewhere. What you don't want is to assume it's handled and find out in a year that nobody's been watching. A site nobody is looking after starts going backwards almost immediately — [which is its own subject](/web/#updates) — but the point here is just to establish whose job it is before you need it to be someone's.
+All three of those are acceptable answers. "Not offered" is fine if you know it, because you can arrange it elsewhere. What you don't want is to assume it's handled and find out in a year that nobody's been watching. A site nobody is looking after starts going backwards almost immediately, [which is its own subject](/web/#updates). The point here is just to establish whose job it is before you need it to be someone's.
 
 ## "What does 'SEO included' mean, exactly?"
 
 This phrase appears on nearly every web design quote in the country and means almost nothing on its own. Push on it.
 
-There's a real answer, which is roughly: the site is built so search engines can read it properly — sensible page structure, fast loading, works on phones, proper page titles and descriptions, a sitemap, clean URLs, no accidental instructions telling Google to ignore you. That's genuine, it's necessary, and any competent build should include it.
+There's a real answer, which is roughly: the site is built so search engines can read it properly. Sensible page structure, fast loading, works on phones, proper page titles and descriptions, a sitemap, clean URLs, and no accidental instructions telling Google to ignore you. That's genuine, it's necessary, and any competent build should include it.
 
 Then there's the other thing "SEO" can mean: researching what your customers actually type, working out which of those you could realistically rank for, writing pages to answer them, and reporting on whether it worked. That's ongoing work with a monthly cost, and it is not included in a build. Nobody can include it in a build, because it doesn't happen in the four weeks you're making a website.
 
@@ -57,7 +57,7 @@ Both are worth paying for. The trouble comes from one being quietly sold as the 
 
 You will want changes. Everyone does.
 
-Ask what the process is — email, a form, a phone call — and what the turnaround looks like for something small. Ask whether small edits are billed hourly, bundled into a monthly arrangement, or charged per job. Ask if there's a minimum.
+Ask what the process is, whether that's email, a form or a phone call, and what the turnaround looks like for something small. Ask whether small edits are billed hourly, bundled into a monthly arrangement, or charged per job. Ask if there's a minimum.
 
 The number matters less than knowing it. A studio charging a fair hourly rate that you know about is easier to work with than one where every request feels like opening a negotiation. And if you'd rather not think about it at all, a fixed monthly arrangement exists for exactly that reason.
 
@@ -67,7 +67,7 @@ The related question: what counts as a change versus new work. Swapping a photo 
 
 Ask how long it takes, then ask what would make it take longer. The second answer is the honest one.
 
-Almost always, the thing that delays a website is content. Photographs that don't exist yet. Copy that needs writing. A list of services nobody's written down. Approval from someone who's on holiday. A build can be four weeks of work spread across four months because it's waiting on you, and that's not the designer's fault — but it is something they should warn you about rather than discover with you.
+Almost always, the thing that delays a website is content. Photographs that don't exist yet. Copy that needs writing. A list of services nobody's written down. Approval from someone who's on holiday. A build can be four weeks of work spread across four months because it's waiting on you, and that's not the designer's fault. It is something they should warn you about rather than discover alongside you.
 
 So ask what they need from you and when. If they can tell you precisely, they've done this before.
 
@@ -95,6 +95,6 @@ That last one is worth taking seriously. If somebody quotes confidently without 
 
 You don't need to interrogate anyone. Most of this comes out naturally in a first conversation with someone straightforward, and the ones who get uncomfortable tend to get uncomfortable early.
 
-What you're really testing is whether they'll tell you something you don't want to hear. The best sign in a first meeting is someone talking you out of something — a feature you don't need, a budget that won't achieve what you're after, a timeline that isn't real. That's the person who'll still be honest with you in month four.
+What you're really testing is whether they'll tell you something you don't want to hear. The best sign in a first meeting is someone talking you out of something: a feature you don't need, a budget that won't achieve what you're after, a timeline that isn't real. That's the person who'll still be honest with you in month four.
 
 If you want to ask me any of the above, [that's what the contact page is for](/contact/). You can also read [how I work](/about/) first, which answers most of them before you've had to.
