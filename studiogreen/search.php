@@ -1,6 +1,6 @@
 <?php
 /**
- * Fallback template.
+ * Search results.
  *
  * @package StudioGreen
  */

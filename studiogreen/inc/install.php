@@ -40,6 +40,17 @@ function sg_page_blueprint() {
 			'menu'     => __( 'About', 'studiogreen' ),
 			'menus'    => array( 'primary', 'footer_pages' ),
 		),
+		'notes'   => array(
+			// The posts page: WordPress ignores its content, so it takes no template.
+			'title'    => __( 'Notes', 'studiogreen' ),
+			'template' => '',
+			'menu'     => __( 'Notes', 'studiogreen' ),
+			'menus'    => array( 'primary', 'footer_pages' ),
+			'excerpt'  => 'Notes on web design, SEO and running a small studio. Written for the people paying for the work, not for other designers.',
+			'meta'     => array(
+				'sg_meta_description' => 'Notes from Studio Green on web design, SEO and looking after a small business website. Plain English, no jargon.',
+			),
+		),
 		'contact' => array(
 			'title'    => __( 'Contact', 'studiogreen' ),
 			'template' => 'templates/template-contact.php',
@@ -95,6 +106,9 @@ function sg_install() {
 		update_option( 'page_on_front', $ids['home'] );
 	}
 
+	// After the front page is set, so the two cannot end up as the same page.
+	sg_ensure_posts_page();
+
 	if ( 'Just another WordPress site' === get_option( 'blogdescription' ) ) {
 		update_option( 'blogdescription', 'Marketing & web design that grows your business' );
 	}
@@ -110,6 +124,157 @@ function sg_install() {
 	update_option( 'sg_installed', SG_VERSION );
 }
 add_action( 'after_switch_theme', 'sg_install' );
+
+/**
+ * Record a page ID without disturbing the others.
+ *
+ * @param string $key Blueprint key.
+ * @param int    $id  Page ID.
+ */
+function sg_remember_page_id( $key, $id ) {
+	$ids = get_option( 'sg_page_ids', array() );
+
+	if ( ! is_array( $ids ) ) {
+		$ids = array();
+	}
+
+	if ( isset( $ids[ $key ] ) && (int) $ids[ $key ] === (int) $id ) {
+		return;
+	}
+
+	$ids[ $key ] = (int) $id;
+
+	update_option( 'sg_page_ids', $ids );
+}
+
+/**
+ * Make sure a posts page exists and is assigned. Safe to run repeatedly.
+ *
+ * @return int Page ID, or 0 if none was set.
+ */
+function sg_ensure_posts_page() {
+	$existing = (int) get_option( 'page_for_posts' );
+
+	// Already pointed at a real page: record it and leave the choice alone.
+	if (
+		$existing
+		&& 'page' === get_post_type( $existing )
+		&& 'publish' === get_post_status( $existing )
+		&& (int) get_option( 'page_on_front' ) !== $existing
+	) {
+		sg_remember_page_id( 'notes', $existing );
+
+		return $existing;
+	}
+
+	// WordPress ignores page_for_posts unless the front page is static.
+	if ( 'page' !== get_option( 'show_on_front' ) ) {
+		return 0;
+	}
+
+	$blueprint = sg_page_blueprint();
+
+	if ( empty( $blueprint['notes'] ) ) {
+		return 0;
+	}
+
+	$id = sg_ensure_page( 'notes', $blueprint['notes'] );
+
+	if ( ! $id || (int) get_option( 'page_on_front' ) === $id ) {
+		return 0;
+	}
+
+	update_option( 'page_for_posts', $id );
+	sg_remember_page_id( 'notes', $id );
+
+	return $id;
+}
+
+/**
+ * Add a page to menus that already have items, without duplicating it.
+ *
+ * sg_build_menus() only fills a menu it created and left empty, so an existing
+ * site needs this instead.
+ *
+ * @param int      $page_id   Page to link.
+ * @param string   $label     Menu label.
+ * @param string[] $locations Menu locations.
+ */
+function sg_add_page_to_menus( $page_id, $label, $locations ) {
+	$assigned = get_nav_menu_locations();
+
+	foreach ( $locations as $location ) {
+		if ( empty( $assigned[ $location ] ) || ! is_nav_menu( $assigned[ $location ] ) ) {
+			continue;
+		}
+
+		$term_id = (int) $assigned[ $location ];
+		$items   = wp_get_nav_menu_items( $term_id );
+		$items   = $items ? $items : array();
+		$present = false;
+
+		foreach ( $items as $item ) {
+			if ( 'post_type' === $item->type && (int) $item->object_id === (int) $page_id ) {
+				$present = true;
+				break;
+			}
+		}
+
+		if ( $present ) {
+			continue;
+		}
+
+		// Appended rather than inserted, so a hand-ordered menu is not renumbered.
+		wp_update_nav_menu_item(
+			$term_id,
+			0,
+			array(
+				'menu-item-title'     => $label,
+				'menu-item-object'    => 'page',
+				'menu-item-object-id' => (int) $page_id,
+				'menu-item-type'      => 'post_type',
+				'menu-item-status'    => 'publish',
+				'menu-item-position'  => count( $items ) + 1,
+			)
+		);
+	}
+}
+
+/**
+ * Apply changes a site installed under an earlier version has not had.
+ *
+ * sg_install() only ever runs once, on theme switch, so anything added later
+ * needs its own gate. Every step here is safe to repeat.
+ */
+function sg_maybe_upgrade() {
+	$installed = get_option( 'sg_installed' );
+
+	if ( ! $installed ) {
+		return;
+	}
+
+	if ( version_compare( (string) $installed, SG_VERSION, '>=' ) ) {
+		return;
+	}
+
+	if ( ! current_user_can( 'edit_theme_options' ) ) {
+		return;
+	}
+
+	$notes_id = sg_ensure_posts_page();
+
+	if ( $notes_id ) {
+		sg_add_page_to_menus( $notes_id, __( 'Notes', 'studiogreen' ), array( 'primary', 'footer_pages' ) );
+	}
+
+	update_option( 'default_comment_status', 'closed' );
+	update_option( 'default_ping_status', 'closed' );
+
+	flush_rewrite_rules();
+
+	update_option( 'sg_installed', SG_VERSION );
+}
+add_action( 'admin_init', 'sg_maybe_upgrade' );
 
 /**
  * Create a page, or adopt an existing one with the same slug.

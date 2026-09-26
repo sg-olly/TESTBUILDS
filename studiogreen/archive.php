@@ -1,6 +1,6 @@
 <?php
 /**
- * Fallback template.
+ * Category, tag, author and date archives.
  *
  * @package StudioGreen
  */

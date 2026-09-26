@@ -1,6 +1,6 @@
 <?php
 /**
- * Fallback template.
+ * The notes index, i.e. the page assigned under Settings > Reading.
  *
  * @package StudioGreen
  */

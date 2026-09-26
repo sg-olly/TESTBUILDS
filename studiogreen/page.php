@@ -14,7 +14,8 @@ get_header();
 while ( have_posts() ) :
 	the_post();
 
-	$sg_lead    = get_the_excerpt();
+	// Written excerpts only; a generated one would repeat the opening paragraph.
+	$sg_lead    = has_excerpt() ? get_the_excerpt() : '';
 	$sg_updated = sg_updated_label();
 	?>
 

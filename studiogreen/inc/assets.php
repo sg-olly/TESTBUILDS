@@ -41,6 +41,17 @@ function sg_page_stylesheet() {
 		return null;
 	}
 
+	/*
+	 * Before the is_page() branch below, which never matches a post, an archive
+	 * or the posts page (where is_page() is false and is_home() is true).
+	 */
+	if ( is_singular( 'post' ) || is_home() || is_archive() || is_search() ) {
+		return array(
+			'handle' => 'sg-blog',
+			'file'   => 'blog.css',
+		);
+	}
+
 	$template = is_page() ? (string) get_page_template_slug() : '';
 
 	$map = array(

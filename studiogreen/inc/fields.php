@@ -18,6 +18,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 function sg_template_key( $post_id = null ) {
 	$post_id = $post_id ? (int) $post_id : (int) get_the_ID();
 
+	/*
+	 * Posts have no page template, so without this they resolved to 'legal' and
+	 * sg_field() would hand them the legal schema's defaults.
+	 */
+	if ( $post_id && 'page' !== get_post_type( $post_id ) ) {
+		return '';
+	}
+
 	if ( $post_id && (int) get_option( 'page_on_front' ) === $post_id ) {
 		return 'home';
 	}
@@ -150,7 +158,7 @@ function sg_field_list( $key, $post_id = null ) {
 function sg_token_keys() {
 	return apply_filters(
 		'sg_token_keys',
-		array( 'home', 'web', 'design', 'about', 'contact', 'privacy', 'cookies' )
+		array( 'home', 'web', 'design', 'about', 'notes', 'contact', 'privacy', 'cookies' )
 	);
 }
 

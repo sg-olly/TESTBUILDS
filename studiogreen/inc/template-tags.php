@@ -38,6 +38,18 @@ function sg_inline_html() {
  * @return int Page ID, or 0 if not found.
  */
 function sg_page_id( $key ) {
+	/*
+	 * Settings > Reading is authoritative for the posts page, so the nav and
+	 * {notes} keep working if it is changed or given a different slug.
+	 */
+	if ( 'notes' === $key ) {
+		$posts_page = (int) get_option( 'page_for_posts' );
+
+		if ( $posts_page && 'publish' === get_post_status( $posts_page ) ) {
+			return $posts_page;
+		}
+	}
+
 	$ids = get_option( 'sg_page_ids', array() );
 
 	if ( ! empty( $ids[ $key ] ) && 'publish' === get_post_status( (int) $ids[ $key ] ) ) {
@@ -74,14 +86,24 @@ function sg_nav_items( $location ) {
 		$menu_items = wp_get_nav_menu_items( $locations[ $location ] );
 
 		if ( $menu_items ) {
+			$notes_id = sg_page_id( 'notes' );
+
 			foreach ( $menu_items as $item ) {
 				if ( (int) $item->menu_item_parent ) {
 					continue;
 				}
+
+				// A post or a category archive is still "in" the notes section.
+				$current = sg_is_current_url( $item->url )
+					|| ( $notes_id
+						&& 'post_type' === $item->type
+						&& (int) $item->object_id === $notes_id
+						&& sg_is_blog_context() );
+
 				$items[] = array(
 					'url'     => $item->url,
 					'title'   => $item->title,
-					'current' => sg_is_current_url( $item->url ),
+					'current' => $current,
 				);
 			}
 			return $items;
@@ -90,7 +112,7 @@ function sg_nav_items( $location ) {
 
 	$fallback = ( 'footer_legal' === $location )
 		? array( 'privacy', 'cookies' )
-		: array( 'home', 'web', 'design', 'about', 'contact' );
+		: array( 'home', 'web', 'design', 'about', 'notes', 'contact' );
 
 	foreach ( $fallback as $key ) {
 		$id = sg_page_id( $key );
@@ -100,7 +122,9 @@ function sg_nav_items( $location ) {
 		$items[] = array(
 			'url'     => get_permalink( $id ),
 			'title'   => get_the_title( $id ),
-			'current' => is_page( $id ) || ( 'home' === $key && is_front_page() ),
+			'current' => is_page( $id )
+				|| ( 'home' === $key && is_front_page() )
+				|| ( 'notes' === $key && sg_is_blog_context() ),
 		);
 	}
 

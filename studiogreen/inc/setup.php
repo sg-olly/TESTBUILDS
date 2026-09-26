@@ -21,6 +21,10 @@ function sg_setup() {
 	add_theme_support( 'responsive-embeds' );
 	add_theme_support( 'html5', array( 'search-form', 'gallery', 'caption', 'style', 'script', 'navigation-widgets' ) );
 
+	// Featured images, if a post is given one. Sized against the 1480px container.
+	add_image_size( 'sg-card', 1200, 750, true );
+	add_image_size( 'sg-wide', 2000, 1000, true );
+
 	register_nav_menus(
 		array(
 			'primary'      => __( 'Primary (header and mobile drawer)', 'studiogreen' ),
