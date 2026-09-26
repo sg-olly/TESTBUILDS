@@ -2,11 +2,6 @@
 /**
  * Single post.
  *
- * Posts use the same prose layout as the legal pages: title and standfirst in
- * the hero, then the editor's content regrouped so each H2 opens a two-column
- * row. Nothing to configure, and a post written normally comes out in the
- * site's design.
- *
  * @package StudioGreen
  */
 
@@ -54,7 +49,7 @@ while ( have_posts() ) :
 			<div class="wrap" data-reveal-group>
 				<p class="t-manifesto page-close__line" data-lines><?php esc_html_e( 'Got a business that deserves better than fine?', 'studiogreen' ); ?></p>
 				<a class="t-display page-close__link" href="<?php echo esc_url( get_permalink( $sg_contact ) ); ?>">
-					<?php echo sg_reveal_line( __( 'Start a project', 'studiogreen' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in helper. ?>
+					<?php echo sg_reveal_line( __( 'Start a project', 'studiogreen' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 				</a>
 			</div>
 		</section>

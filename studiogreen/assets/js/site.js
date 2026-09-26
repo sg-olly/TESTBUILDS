@@ -1,6 +1,3 @@
-/* ============================================================
-   STUDIO GREEN — Interactions
-   ============================================================ */
 (function () {
   "use strict";
 
@@ -41,7 +38,7 @@
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
 
-  /* ---- Scroll reveal (IO + rect fallback so nothing stays invisible) ---- */
+  
   const reveals = Array.prototype.slice.call(document.querySelectorAll("[data-reveal]"));
   const show = (el) => el.classList.add("in");
   const sweep = () => {
@@ -62,8 +59,6 @@
       { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
     );
     reveals.forEach((el) => io.observe(el));
-    // Fallback: rect check on load + scroll (covers offscreen/background iframes
-    // where IO may not report intersections).
     window.addEventListener("load", sweep);
     window.addEventListener("scroll", sweep, { passive: true });
     setTimeout(sweep, 400);
@@ -130,7 +125,7 @@
     counters.forEach((el) => cio.observe(el));
   }
 
-  /* ---- Stacking cards: scale + dim covered cards as the next slides over ---- */
+  
   const stacks = Array.prototype.slice.call(document.querySelectorAll("[data-stack]"));
   if (stacks.length && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
     stacks.forEach((stack) => {
@@ -142,7 +137,6 @@
         const vh = window.innerHeight;
         for (let i = 0; i < cards.length - 1; i++) {
           const next = cards[i + 1].getBoundingClientRect();
-          // progress: 0 when next card's top is at bottom of viewport, 1 when it reaches the top
           let p = (vh - next.top) / vh;
           p = Math.max(0, Math.min(1, p));
           const scale = 1 - 0.08 * p;
@@ -180,18 +174,13 @@
       })
     );
   }
-  /* ---- Motion system: Lenis + masked line reveals + parallax ----
-     Only acts on pages using [data-lines] / [data-reveal-group] markup. */
+  
   (function motionSystem() {
     var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
     if (!reduce && window.Lenis) {
-      /* Lenis drives scrolling itself, and the stylesheet's
-         `html { scroll-behavior: smooth }` fights it: the browser's native
-         smooth scrolling and Lenis both try to own the same gesture, which
-         reads as laggy, rubber-banding movement. Turned off here rather than
-         deleted from the CSS, so it still serves as the fallback when Lenis
-         is absent (blocked CDN, or the src filtered off). */
+      
+      // Native smooth scrolling fights Lenis; Lenis drives it from here.
       document.documentElement.style.scrollBehavior = "auto";
 
       var lenis = new Lenis();
@@ -202,9 +191,7 @@
     if (reduce) return;
 
     function split(el) {
-      /* Read the words out with a note of which sat inside a .mark highlight,
-         so the highlight can be put back afterwards. Rebuilding from plain
-         textContent would silently drop it. */
+      
       var items = [];
       Array.prototype.forEach.call(el.childNodes, function (node) {
         var marked = node.nodeType === 1 && node.className &&
@@ -219,12 +206,9 @@
       var probes = [];
       items.forEach(function (item, i) {
         var s = document.createElement("span");
-        /* Left inline on purpose. These spans exist only to be measured, and
-           an inline-block box wraps differently from the plain text it stands
-           in for, so measuring them produced line breaks the real text never
-           had (an orphaned word on its own line). A plain inline span does not
-           affect layout at all, so the lines read back here are the ones the
-           browser actually laid out. */
+        
+        // Inline, not inline-block: inline-block wraps differently and gave
+        // false line breaks.
         s.textContent = item.word;
         el.appendChild(s);
         probes.push(s);
@@ -243,8 +227,6 @@
         mask.className = "reveal-line";
         var inner = document.createElement("span");
 
-        // Consecutive highlighted words share one box, so a phrase reads as a
-        // single stroke rather than one block per word.
         var runs = [];
         line.forEach(function (item) {
           var last = runs[runs.length - 1];
@@ -274,19 +256,14 @@
         try {
           split(el);
         } catch (e) {}
-        /* Marks the element as dealt with, which un-hides it. Inside the loop
-           and after a try/catch so one bad element can never leave the rest of
-           the page invisible. */
+        
         el.classList.add("sg-split");
       });
       startGroups();
     }
 
-    /* The splitter measures where the browser put each word, so it has to run
-       against the real typeface. Switzer arrives from Fontshare with
-       display=swap, so splitting immediately would measure the fallback and
-       bake in line breaks that are wrong once the webfont lands. Raced against
-       a timer so a font that never loads cannot hold the page hidden. */
+    
+    // Measure against the real webfont, or the line breaks are wrong once it lands.
     var fontsReady = document.fonts && document.fonts.ready
       ? document.fonts.ready
       : Promise.resolve();
@@ -354,8 +331,7 @@
   (function cookieBanner() {
     var KEY = "gs.cookieConsent";
     try { if (localStorage.getItem(KEY)) return; } catch (e) {}
-    /* Permalink comes from WordPress (see inc/assets.php) so the banner keeps
-       pointing at the cookie policy whatever its slug ends up being. */
+    
     var cookiesUrl = (window.SGData && window.SGData.cookiesUrl) || "/cookies/";
     var banner = document.createElement("div");
     banner.className = "cookie-banner";

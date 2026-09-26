@@ -2,14 +2,6 @@
 /**
  * First-run setup.
  *
- * Activating the theme on a fresh WordPress builds the site structure the
- * static version had: the seven pages with the right templates and slugs, the
- * three menus, the front page setting and pretty permalinks.
- *
- * It runs once. Existing pages with matching slugs are adopted rather than
- * duplicated, and nothing already written is overwritten, so re-activating the
- * theme on a live site is safe.
- *
  * @package StudioGreen
  */
 
@@ -103,14 +95,10 @@ function sg_install() {
 		update_option( 'page_on_front', $ids['home'] );
 	}
 
-	// The tagline completes the home page title ("Studio Green: ..."), so it is
-	// only filled in while it is still WordPress's placeholder.
 	if ( 'Just another WordPress site' === get_option( 'blogdescription' ) ) {
 		update_option( 'blogdescription', 'Marketing & web design that grows your business' );
 	}
 
-	// Pretty permalinks, so /web/ works and the old .html redirects have somewhere
-	// to point. Only set when the site is still on the plain default.
 	if ( '' === get_option( 'permalink_structure' ) ) {
 		update_option( 'permalink_structure', '/%postname%/' );
 	}
@@ -134,7 +122,6 @@ function sg_ensure_page( $slug, $page ) {
 	$existing = get_page_by_path( $slug );
 
 	if ( $existing ) {
-		// Only fill in the template, and only if the page does not have one.
 		if ( ! empty( $page['template'] ) && ! get_page_template_slug( $existing->ID ) ) {
 			update_post_meta( $existing->ID, '_wp_page_template', $page['template'] );
 		}
@@ -179,8 +166,6 @@ function sg_ensure_page( $slug, $page ) {
 
 /**
  * Create the three menus and assign them to their locations.
- *
- * Menus that already exist at a location are left alone.
  *
  * @param array $ids Page IDs keyed by slug.
  */
@@ -243,22 +228,17 @@ function sg_build_menus( $ids ) {
 /**
  * The starting copy for a legal page.
  *
- * Written as plain HTML so it lands in the editor as editable prose. The
- * {cookies} and {privacy} tokens become permalinks when the page is rendered.
- *
  * @param string $which 'privacy' or 'cookies'.
  * @return string
  */
 function sg_legal_content( $which ) {
 	$file = SG_DIR . '/inc/content/' . $which . '.html';
 
-	return file_exists( $file ) ? (string) file_get_contents( $file ) : ''; // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents -- Local theme file.
+	return file_exists( $file ) ? (string) file_get_contents( $file ) : ''; // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
 }
 
 /**
  * Turn {page} tokens inside page content into real permalinks.
- *
- * Lets the seeded legal copy cross-link without hard-coding slugs.
  *
  * @param string $content Post content.
  * @return string

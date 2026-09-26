@@ -1,7 +1,6 @@
 <?php
 /**
  * Template Name: About
- * Template Post Type: page
  *
  * @package StudioGreen
  */
@@ -45,7 +44,7 @@ get_header();
 				?>
 				<li data-reveal-group>
 					<div>
-						<h2 class="t-display"><?php echo sg_reveal_line( $sg_title ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in helper. ?></h2>
+						<h2 class="t-display"><?php echo sg_reveal_line( $sg_title ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
 						<p><?php sg_the_field( "how_{$sg_i}_text" ); ?></p>
 					</div>
 				</li>
@@ -59,7 +58,7 @@ get_header();
 	<div class="wrap" data-reveal-group>
 		<p class="t-manifesto page-close__line" data-lines><?php sg_the_field( 'close_line' ); ?></p>
 		<a class="t-display page-close__link" href="<?php echo esc_url( sg_field_url( 'close_cta_url' ) ); ?>">
-			<?php echo sg_reveal_line( sg_field( 'close_cta' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in helper. ?>
+			<?php echo sg_reveal_line( sg_field( 'close_cta' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 		</a>
 	</div>
 </section>

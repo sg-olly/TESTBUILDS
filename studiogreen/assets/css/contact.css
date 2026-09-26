@@ -3,11 +3,7 @@
 .enquire { padding-bottom: clamp(72px, 12vh, 180px); }
 .enquire__grid {
   display: grid;
-  /* Not 50/50. The left column is three short lines, while the Typeform embed
-     switches to its narrow phone layout below roughly 640px wide. An even split
-     of a 1480px wrap never gave it more than ~610px, so it rendered narrow on
-     every desktop. The left column takes a fixed measure and the form takes
-     what is left. */
+  
   grid-template-columns: minmax(0, 26rem) minmax(0, 1fr);
   gap: clamp(36px, 6vw, 96px);
   align-items: start;
@@ -19,10 +15,7 @@
 .enquire__email {
   display: inline-block;
   margin-block: clamp(16px, 2.5vh, 28px) 0;
-  /* Sized to fit the domain on one line in this column. At the full
-     .t-manifesto size it overflowed and broke mid-word. `anywhere` stays as the
-     last resort for very narrow screens; the <wbr> after the @ in the template
-     gives it a sensible place to break first. */
+  
   font-size: clamp(1.15rem, 2vw, 1.85rem);
   overflow-wrap: anywhere;
   text-decoration: underline;
@@ -37,11 +30,6 @@
 .enquire__form [data-tf-live] { width: 100%; height: min(74vh, 660px); }
 .enquire__form iframe { width: 100% !important; height: 100% !important; border: 0; }
 
-/* Collapsed well before the old 900px. Two columns are only worth it when the
-   form still clears Typeform's desktop threshold; below that, stacked gives it
-   the full container width, which is wider than any split could. Set against
-   768px rather than 640px, because the narrow layout kicks in at the higher of
-   the two on some forms and a stacked wide form costs nothing. */
 @media (max-width: 1400px) {
   .enquire__grid { grid-template-columns: 1fr; }
 }

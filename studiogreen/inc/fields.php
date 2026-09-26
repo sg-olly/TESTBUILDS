@@ -106,10 +106,6 @@ function sg_field( $key, $post_id = null ) {
 /**
  * Echo a field, escaped according to where it is rendered.
  *
- * Fields flagged 'plain' end up inside elements whose text is re-split into
- * animated lines by JS, which would discard any markup, so they are escaped as
- * plain text. Everything else allows a small set of inline tags.
- *
  * @param string   $key     Field key.
  * @param int|null $post_id Page ID.
  */
@@ -119,11 +115,11 @@ function sg_the_field( $key, $post_id = null ) {
 	$def     = sg_field_def( $key, sg_template_key( $post_id ) );
 
 	if ( $def && ! empty( $def['plain'] ) ) {
-		echo sg_marks( $value ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in helper.
+		echo sg_marks( $value ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		return;
 	}
 
-	echo wp_kses( $value, sg_inline_html() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped by wp_kses.
+	echo wp_kses( $value, sg_inline_html() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 }
 
 /**
@@ -149,10 +145,6 @@ function sg_field_list( $key, $post_id = null ) {
 /**
  * The page keys that {token} substitution recognises.
  *
- * Deliberately a fixed list. This runs over post content as well as URL
- * fields, so an unrecognised {something} has to be left alone rather than
- * quietly turning into a link to the home page.
- *
  * @return string[]
  */
 function sg_token_keys() {
@@ -164,8 +156,6 @@ function sg_token_keys() {
 
 /**
  * Replace {page} tokens with real permalinks.
- *
- * Lets the default links survive whatever slugs the pages end up with.
  *
  * @param string $text Text, possibly containing tokens.
  * @return string
@@ -186,9 +176,6 @@ function sg_resolve_tokens( $text ) {
 
 			$id = sg_page_id( $matches[1] );
 
-			// get_permalink() already carries whatever trailing form the site's
-			// permalink structure uses. Forcing a slash on top of it breaks flat
-			// URLs, such as the .html filenames the static export writes.
 			return $id ? get_permalink( $id ) : home_url( '/' );
 		},
 		$text
@@ -206,15 +193,8 @@ function sg_field_url( $key, $post_id = null ) {
 	return sg_resolve_tokens( sg_field( $key, $post_id ) );
 }
 
-/* -------------------------------------------------------------------------
- * Admin: meta boxes
- * ---------------------------------------------------------------------- */
-
 /**
  * Templates whose layout comes entirely from fields.
- *
- * On these the main editor is dead weight: the template never calls
- * the_content(), so anything typed into the canvas is stored and never shown.
  *
  * @return string[]
  */
@@ -235,19 +215,12 @@ function sg_is_field_driven( $post_id ) {
 /**
  * Use the classic editor on the field-driven templates.
  *
- * The block editor puts meta boxes in a collapsed strip underneath an editing
- * canvas that, on these templates, does nothing at all. That combination reads
- * as "this page is not editable". The classic editor puts the content panel
- * straight under the title, where it belongs.
- *
- * Pages using the default template, and all posts, keep the block editor,
- * because their content really is the editor's content.
- *
  * @param bool    $use  Whether to use the block editor.
  * @param WP_Post $post Post being edited.
  * @return bool
  */
 function sg_use_block_editor( $use, $post ) {
+	// These templates never call the_content(), so the canvas would be dead weight.
 	if ( ! $post || 'page' !== $post->post_type ) {
 		return $use;
 	}
@@ -269,9 +242,6 @@ function sg_add_meta_boxes( $post ) {
 		return;
 	}
 
-	// Hide the content editor where the template ignores it. Per-request only,
-	// so nothing already written is touched, and the box returns the moment the
-	// page is switched to a template that uses it.
 	if ( sg_is_field_driven( $post->ID ) ) {
 		remove_post_type_support( 'page', 'editor' );
 	}
@@ -290,10 +260,6 @@ add_action( 'add_meta_boxes_page', 'sg_add_meta_boxes' );
 
 /**
  * Register the field meta keys.
- *
- * Gives the values a sanitiser and a capability check of their own, and exposes
- * them over REST, so they hold up whether they arrive from the meta box's form
- * post or from a REST request.
  */
 function sg_register_meta() {
 	$fields = array();
@@ -301,8 +267,6 @@ function sg_register_meta() {
 	foreach ( sg_schema() as $entry ) {
 		foreach ( $entry['groups'] as $group ) {
 			foreach ( $group['fields'] as $field ) {
-				// A key such as hero_title appears on several templates with the
-				// same type, so the last definition wins harmlessly.
 				$fields[ 'sg_' . $field['key'] ] = $field;
 			}
 		}
@@ -430,9 +394,6 @@ function sg_save_fields( $post_id, $post ) {
 		return;
 	}
 
-	// The submitted form belongs to whichever template the page had when it was
-	// opened; saving a template change alongside content edits is handled on the
-	// next load, when the new schema's box renders.
 	foreach ( sg_flat_fields( sg_template_key( $post_id ) ) as $field ) {
 		$name = 'sg_' . $field['key'];
 
@@ -440,7 +401,7 @@ function sg_save_fields( $post_id, $post ) {
 			continue;
 		}
 
-		$raw   = wp_unslash( $_POST[ $name ] ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Sanitized below per field type.
+		$raw   = wp_unslash( $_POST[ $name ] ); // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
 		$value = sg_sanitize_field( $raw, $field );
 
 		if ( '' === trim( $value ) ) {
@@ -465,7 +426,6 @@ function sg_sanitize_field( $raw, $field ) {
 	$type = isset( $field['type'] ) ? $field['type'] : 'text';
 
 	if ( 'url' === $type ) {
-		// Tokens such as {contact}#seo are stored verbatim; anything else is a URL.
 		if ( preg_match( '/^\{[a-z_]+\}/', trim( $raw ) ) ) {
 			return sanitize_text_field( $raw );
 		}
@@ -480,7 +440,6 @@ function sg_sanitize_field( $raw, $field ) {
 	}
 
 	if ( ! empty( $field['plain'] ) ) {
-		// Animated lines are rendered as text, so strip markup at the door too.
 		return 'textarea' === $type
 			? sanitize_textarea_field( $raw )
 			: sanitize_text_field( $raw );

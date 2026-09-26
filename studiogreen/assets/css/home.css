@@ -8,21 +8,14 @@
   flex-direction: column;
 }
 .hero__inner { width: 100%; padding-top: 20vh; }
-/* Stepped down by the same 1.2 as .t-display, so the hero keeps its existing
-   relationship to the rest of the headings. */
+
 .hero__title { color: var(--ink); font-size: clamp(2.4rem, 8.35vw, 8.35rem); }
 .hero__lead {
   margin-top: clamp(36px, 6vh, 72px);
   max-width: 44ch;
   color: var(--ink);
 }
-/* The rotating word is highlighted rather than just coloured. Inverted against
-   the .mark highlight further down the page: dark green block, lime text here,
-   because on a white page the dark block is what carries the word, and lime on
-   white on its own was close to unreadable. Overridden here rather than on
-   .cycle-word in style.css so the token stays available, and so site.js's
-   stored accent cannot change it. The block belongs to the word, so it resizes
-   and animates through each swap with it. */
+
 .hero__title .cycle-word {
   color: var(--lime);
   background: var(--dark-green);
@@ -30,35 +23,23 @@
 }
 
 /* ---------- Statement panel ---------- */
-/* A single display line on dark green, between the ticker and the lime block.
-   The height is the point: the line sits high and the space beneath it is
-   deliberate, so the panel reads as a pause rather than a filled section. */
-/* Asymmetric on purpose: the line sits high and most of the panel is the space
-   under it. The floor has to carry that gap, since with border-box sizing a
-   larger padding-bottom alone just eats into the content box while min-height
-   still decides the overall height. */
+
 .statement {
   background: var(--dark-green);
   color: #fff;
-  /* Sized to the proportion the phone layout lands on, where the line takes
-     about a third of the panel and the rest is open ground. The desktop
-     heading is proportionally much larger, so matching that feel means going
-     past a full viewport. Capped in px so a tall monitor does not turn the
-     gap into a void. */
+  
   min-height: clamp(720px, 120vh, 1150px);
   padding-top: clamp(56px, 9vh, 120px);
   padding-bottom: clamp(96px, 16vh, 200px);
-  /* The line is sticky, and sticky travels only within its own parent. As a
-     plain block, .wrap would be exactly as tall as the heading and there would
-     be nowhere to travel to, so the column stretches it to the full panel. */
+  
+  /* Column + stretched .wrap so the sticky line has room to travel. */
   display: flex;
   flex-direction: column;
 }
 .statement > .wrap { flex: 1; }
 .statement__line {
   max-width: 20ch;
-  /* Rides down with the scroll, pins clear of the fixed nav, and releases when
-     the foot of the panel catches up with it. */
+  
   position: sticky;
   top: clamp(96px, 13vh, 150px);
 }
@@ -67,25 +48,18 @@
 }
 
 /* ---------- Services index ---------- */
-/* Lime block: every mark inside it is near-black, including the rules. */
+
 .services {
   padding-block: clamp(56px, 9vh, 140px);
   background: var(--lime);
   color: var(--ink);
 }
-/* One size step above .t-display (x1.2, the same ratio the scale uses), so the
-   header reads as the parent of the four rows rather than a fifth one. */
-/* Header sits at the base display size; the rows below step down from it, so
-   it still reads as their parent while both come down overall.
-   The measure is what puts it on three lines rather than two: at this size the
-   wrap is wide enough to fit it in two, which reads as a banner rather than a
-   heading. Roughly a third of the line each — widen it for two lines, tighten
-   for four. */
+
 .services__header {
   max-width: 14ch;
   margin-bottom: clamp(36px, 6vh, 88px);
 }
-/* One step below .t-display (÷1.2, the ratio the scale uses throughout). */
+
 .svc-index h3 { font-size: clamp(1.75rem, 5.2vw, 5.5rem); }
 .svc-index { list-style: none; margin: 0; padding: 0; }
 .svc-index li { border-top: 1px solid var(--ink); }
@@ -99,10 +73,7 @@
   color: var(--ink);
 }
 .svc-index p { margin-top: clamp(12px, 1.6vw, 22px); max-width: 56ch; }
-/* The underline colour used to be left unset, so it fell back to currentColor
-   and only the hover state was declared — which made whichever row the cursor
-   was over look different from the other two. Both states are now near-black
-   and stated explicitly. Lime on hover is gone: it was invisible on lime. */
+
 .svc-more {
   text-decoration: underline;
   text-underline-offset: 4px;
@@ -122,7 +93,7 @@
 .manifesto__copy p + p { margin-top: clamp(24px, 3vh, 40px); }
 .manifesto__stats {
   margin-top: clamp(64px, 10vh, 140px);
-  /* Hairlines on dark green are lime at low opacity rather than white/grey. */
+  
   border-top: 1px solid rgba(185, 241, 0, 0.32);
   padding-top: clamp(28px, 4vh, 52px);
   display: grid;
@@ -157,26 +128,17 @@
 .closing__mail:hover .reveal-line > span { text-decoration-color: var(--lime); }
 
 /* ---------- Mobile rhythm ---------- */
-/* Now that the sections carry their own colour, generous vertical padding
-   turns each one into a long run of flat colour on a phone. Padding only:
-   type, layout and section order are untouched. */
+
 @media (max-width: 700px) {
-  /* The hero and the closing block both floor at 100svh. On a desktop that
-     reads as a full-bleed opening and a full-bleed sign-off; on a phone the
-     copy only fills the top third and the rest is dead white. Both become
-     content-driven here, with padding doing the work instead. The top padding
-     still has to clear the fixed nav. */
+  
   .hero { min-height: 0; }
   .hero__inner { padding-top: 116px; padding-bottom: 88px; }
 
-  /* The lime block is the tallest on a phone. Its section padding is cut hard
-     and the row padding trimmed with it; the rest of its height is the four
-     rows of copy, which type and layout rules put out of bounds. */
+  
   .services { padding-block: 24px; }
   .svc-index a { padding-block: 20px; }
 
-  /* Still a spacious pause, but 70vh of mostly empty green is overbearing on a
-     phone. Stays comfortably inside one screen either way. */
+  
   .statement { min-height: 58vh; padding-block: 40px; }
   .services__header { margin-bottom: 28px; }
 

@@ -2,10 +2,6 @@
 /**
  * Fallback template.
  *
- * The site is a set of static pages, so this is only reached by archives, the
- * blog index or search. It reuses the prose layout rather than introducing a
- * second visual language.
- *
  * @package StudioGreen
  */
 
@@ -21,7 +17,6 @@ get_header();
 		<h1 class="t-display" data-lines>
 			<?php
 			if ( is_search() ) {
-				/* translators: %s: search term. */
 				printf( esc_html__( 'Results for %s', 'studiogreen' ), esc_html( get_search_query() ) );
 			} elseif ( is_archive() ) {
 				echo esc_html( wp_strip_all_tags( get_the_archive_title() ) );

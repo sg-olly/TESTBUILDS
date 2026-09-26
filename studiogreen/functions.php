@@ -2,10 +2,6 @@
 /**
  * Studio Green theme bootstrap.
  *
- * The theme is a direct port of the hand-built static site. Layout lives in the
- * page templates; every piece of copy in those templates runs through sg_field(),
- * which falls back to the original wording until it is edited in wp-admin.
- *
  * @package StudioGreen
  */
 

@@ -12,8 +12,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 $sg_contact_id = sg_page_id( 'contact' );
 $sg_on_contact = $sg_contact_id && is_page( $sg_contact_id );
 
-// The static site swapped the header button on the contact page: everywhere else
-// it points at the enquiry form, there it offers email instead.
 if ( $sg_on_contact ) {
 	$sg_cta_url   = 'mailto:' . sg_field( 'email', $sg_contact_id );
 	$sg_cta_label = __( 'Email instead', 'studiogreen' );

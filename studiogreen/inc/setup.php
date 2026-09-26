@@ -21,8 +21,6 @@ function sg_setup() {
 	add_theme_support( 'responsive-embeds' );
 	add_theme_support( 'html5', array( 'search-form', 'gallery', 'caption', 'style', 'script', 'navigation-widgets' ) );
 
-	// The static site had no custom logo control: the wordmark is a CSS mask so it
-	// can recolour itself over dark sections. Left as a theme asset deliberately.
 	register_nav_menus(
 		array(
 			'primary'      => __( 'Primary (header and mobile drawer)', 'studiogreen' ),
@@ -43,10 +41,6 @@ add_action( 'after_setup_theme', 'sg_content_width', 0 );
 
 /**
  * Drop the core emoji scripts.
- *
- * They inject an inline script into every page, which the site's own
- * Content-Security-Policy (ported from the Netlify _headers file) does not
- * allow. Removing them keeps the policy strict and saves a request.
  */
 function sg_disable_emojis() {
 	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
@@ -68,11 +62,6 @@ add_action( 'init', 'sg_disable_emojis' );
 
 /**
  * Remove the block library's default front-end CSS.
- *
- * The theme ships its own complete stylesheet and the templates emit no block
- * markup, so core's block styles would only add weight. Legal pages written in
- * the editor use plain paragraphs, headings, lists and tables, all of which the
- * theme styles itself in assets/css/legal.css.
  */
 function sg_dequeue_block_styles() {
 	wp_dequeue_style( 'wp-block-library' );

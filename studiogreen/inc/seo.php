@@ -2,10 +2,6 @@
 /**
  * Meta description, Open Graph, canonical and structured data.
  *
- * The static site hand-wrote these tags into every page. They are reproduced
- * here, but the whole file stands down if an SEO plugin is active so the two
- * never both emit a description.
- *
  * @package StudioGreen
  */
 
@@ -45,10 +41,6 @@ add_filter( 'document_title_separator', 'sg_title_separator' );
 
 /**
  * Title the front page after the studio rather than after the page.
- *
- * The static home page was titled "Studio Green: Marketing & web design that
- * grows your business". WordPress would otherwise use the page's own name, so
- * the site name and tagline are substituted here.
  *
  * @param array $parts Title parts.
  * @return array
@@ -130,8 +122,6 @@ function sg_meta_tags() {
 		printf( '<meta name="description" content="%s" />' . "\n", esc_attr( $description ) );
 	}
 
-	// Pages are all "website", as they were on the static site; only real posts
-	// are articles.
 	$type = ( is_singular() && ! is_page() && ! is_front_page() ) ? 'article' : 'website';
 
 	printf( '<meta property="og:type" content="%s" />' . "\n", esc_attr( $type ) );
@@ -182,7 +172,6 @@ function sg_structured_data() {
 	 */
 	$data = apply_filters( 'sg_structured_data', $data );
 
-	// JSON_HEX_TAG keeps a stray "</script>" in any value from closing the block.
 	printf(
 		'<script type="application/ld+json">%s</script>' . "\n",
 		wp_json_encode( $data, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG )

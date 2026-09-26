@@ -1,7 +1,6 @@
 <?php
 /**
  * Template Name: Contact
- * Template Post Type: page
  *
  * @package StudioGreen
  */
@@ -30,9 +29,8 @@ $sg_typeform = trim( sg_field( 'typeform_id' ) );
 		<div class="enquire__direct">
 			<p><?php sg_the_field( 'direct_intro' ); ?></p>
 			<a class="t-manifesto enquire__email" href="mailto:<?php echo esc_attr( $sg_email ); ?>"><?php
-				// <wbr> after the @ so a wrap breaks between name and domain
-				// rather than mid-word.
-				echo str_replace( '@', '@<wbr>', esc_html( $sg_email ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped above.
+				// <wbr> so a wrap breaks after the @, not mid-domain.
+				echo str_replace( '@', '@<wbr>', esc_html( $sg_email ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				?></a>
 			<p><?php sg_the_field( 'direct_note' ); ?></p>
 		</div>

@@ -2,8 +2,6 @@
 /**
  * Not found.
  *
- * Built from the base hero and closing styles so it needs no extra stylesheet.
- *
  * @package StudioGreen
  */
 
@@ -24,7 +22,7 @@ get_header();
 <section class="page-close" data-screen-label="404 — Closing">
 	<div class="wrap" data-reveal-group>
 		<a class="t-display page-close__link" href="<?php echo esc_url( home_url( '/' ) ); ?>">
-			<?php echo sg_reveal_line( __( 'Back to the start', 'studiogreen' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Escaped in helper. ?>
+			<?php echo sg_reveal_line( __( 'Back to the start', 'studiogreen' ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 		</a>
 	</div>
 </section>

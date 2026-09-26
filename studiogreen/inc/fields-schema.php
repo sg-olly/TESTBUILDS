@@ -2,21 +2,6 @@
 /**
  * Editable content schema.
  *
- * Every string the templates render is declared here with the wording from the
- * original static site as its default. Nothing has to be filled in for the site
- * to look right; editing a field in wp-admin overrides that default.
- *
- * Field keys:
- *   type    text | textarea | url | list   (list = one item per line)
- *   plain   true when the value is rendered inside a [data-lines] or
- *           .reveal-line element. Those are split into lines by JS, which reads
- *           textContent, so inline HTML there would be discarded: such fields
- *           are escaped as plain text and the editor is told so.
- *   default the original copy.
- *
- * URL defaults may use {home} {web} {design} {about} {contact} {privacy}
- * {cookies} tokens, resolved to permalinks at render time.
- *
  * @package StudioGreen
  */
 
@@ -343,8 +328,6 @@ function sg_schema() {
 			)
 		),
 
-		// Same layout as Web and Design, but blank: the template any new page can
-		// be given from Page Attributes.
 		'service' => sg_service_page_schema(
 			__( 'Service page content', 'studiogreen' ),
 			sg_blank_service_defaults()
@@ -555,9 +538,6 @@ function sg_schema() {
 		),
 	);
 
-	// Every template gets a search-and-social group, carrying the meta description
-	// each page shipped with. The legal pages default to empty and fall back to
-	// their excerpt, since one default cannot serve both of them.
 	$descriptions = array(
 		'home'    => 'Studio Green is an independent marketing studio. Engaging web design & build, ongoing site updates, SEO and content, no templates, fast turnaround.',
 		'web'     => 'Web design & build, ongoing site updates & care, and SEMrush-certified SEO. Custom work, no templates, fast turnaround.',
@@ -596,9 +576,6 @@ function sg_schema() {
 
 /**
  * An empty set of service-page defaults.
- *
- * Used by the reusable Service page template, where there is no launch copy to
- * fall back to and the editor fills everything in.
  *
  * @return array
  */
@@ -653,7 +630,6 @@ function sg_repeat_fields( $prefix, $count, $fields, $defaults ) {
 		foreach ( $fields as $field ) {
 			$sub          = $field['key'];
 			$field['key'] = "{$prefix}_{$i}_{$sub}";
-			/* translators: 1: item number, 2: field label. */
 			$field['label']   = sprintf( __( '%1$d. %2$s', 'studiogreen' ), $i, $field['label'] );
 			$field['default'] = isset( $defaults[ $i ][ $sub ] ) ? $defaults[ $i ][ $sub ] : '';
 			$out[]            = $field;
@@ -665,9 +641,6 @@ function sg_repeat_fields( $prefix, $count, $fields, $defaults ) {
 
 /**
  * Field definitions for the three-up statistics row.
- *
- * A numeric value (optionally with a trailing symbol such as %) counts up when
- * it scrolls into view; anything else is shown as-is.
  *
  * @param array $defaults Defaults as index => array( value, label ).
  * @return array
