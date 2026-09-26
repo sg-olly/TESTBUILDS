@@ -10,7 +10,7 @@
 .hero__inner { width: 100%; padding-top: 20vh; }
 /* Stepped down by the same 1.2 as .t-display, so the hero keeps its existing
    relationship to the rest of the headings. */
-.hero__title { color: var(--ink); font-size: clamp(2.85rem, 10vw, 10rem); }
+.hero__title { color: var(--ink); font-size: clamp(2.4rem, 8.35vw, 8.35rem); }
 .hero__lead {
   margin-top: clamp(36px, 6vh, 72px);
   max-width: 44ch;
@@ -86,7 +86,7 @@
   margin-bottom: clamp(36px, 6vh, 88px);
 }
 /* One step below .t-display (÷1.2, the ratio the scale uses throughout). */
-.svc-index h3 { font-size: clamp(2.1rem, 6.25vw, 6.6rem); }
+.svc-index h3 { font-size: clamp(1.75rem, 5.2vw, 5.5rem); }
 .svc-index { list-style: none; margin: 0; padding: 0; }
 .svc-index li { border-top: 1px solid var(--ink); }
 .svc-index li:last-child { border-bottom: 1px solid var(--ink); }

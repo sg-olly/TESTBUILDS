@@ -121,10 +121,11 @@ p { margin: 0; }
 /* ---------- Redesign type scale (exactly three sizes) ---------- */
 .t-display {
   font-family: var(--display);
-  /* One step down from the launch scale (clamp(3rem, 9vw, 9.5rem)): all three
-     stops divided by 1.2, so the fluid curve keeps its shape and only the
-     overall size drops. Headings were overpowering the 17px body copy. */
-  font-size: clamp(2.5rem, 7.5vw, 8rem);
+  /* Two steps down from the launch scale (clamp(3rem, 9vw, 9.5rem)): all three
+     stops divided by 1.2 each time, so the fluid curve keeps its shape and only
+     the overall size drops. Drives every section heading on the Web and Design
+     pages, which is where the scale read largest. 90px at 1440. */
+  font-size: clamp(2.1rem, 6.25vw, 6.6rem);
   font-weight: 600;
   line-height: 0.95;
   letter-spacing: -0.03em;
