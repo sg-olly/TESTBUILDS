@@ -3,8 +3,7 @@
 .enquire { padding-bottom: clamp(72px, 12vh, 180px); }
 .enquire__grid {
   display: grid;
-  
-  grid-template-columns: minmax(0, 26rem) minmax(0, 1fr);
+  grid-template-columns: 1fr;
   gap: clamp(36px, 6vw, 96px);
   align-items: start;
   border-top: 1px solid var(--line);
@@ -15,8 +14,6 @@
 .enquire__email {
   display: inline-block;
   margin-block: clamp(16px, 2.5vh, 28px) 0;
-  
-  font-size: clamp(1.15rem, 2vw, 1.85rem);
   overflow-wrap: anywhere;
   text-decoration: underline;
   text-decoration-color: rgba(11, 16, 11, 0.25);
@@ -27,9 +24,6 @@
 .enquire__email:hover { text-decoration-color: var(--lime); }
 .enquire__direct p:last-child { margin-top: clamp(16px, 2.5vh, 28px); }
 .enquire__form { min-width: 0; }
-.enquire__form [data-tf-live] { width: 100%; height: min(74vh, 660px); }
+.enquire__form [data-tf-live] { width: 100%; }
 .enquire__form iframe { width: 100% !important; height: 100% !important; border: 0; }
 
-@media (max-width: 1400px) {
-  .enquire__grid { grid-template-columns: 1fr; }
-}

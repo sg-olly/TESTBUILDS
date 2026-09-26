@@ -36,7 +36,7 @@ $sg_typeform = trim( sg_field( 'typeform_id' ) );
 		</div>
 		<?php if ( '' !== $sg_typeform ) : ?>
 			<div class="enquire__form">
-				<div data-tf-live="<?php echo esc_attr( $sg_typeform ); ?>" style="width:100%;height:min(74vh,660px);"></div>
+				<div data-tf-live="<?php echo esc_attr( $sg_typeform ); ?>" style="width:100%;height:min(80vh,760px);"></div>
 			</div>
 		<?php endif; ?>
 	</div>
