@@ -37,8 +37,11 @@
 .enquire__form [data-tf-live] { width: 100%; height: min(74vh, 660px); }
 .enquire__form iframe { width: 100% !important; height: 100% !important; border: 0; }
 
-/* Collapsed earlier than the old 900px: below this the two columns cannot give
-   the form 640px, and stacked it gets the full width, which suits it better. */
-@media (max-width: 1250px) {
+/* Collapsed well before the old 900px. Two columns are only worth it when the
+   form still clears Typeform's desktop threshold; below that, stacked gives it
+   the full container width, which is wider than any split could. Set against
+   768px rather than 640px, because the narrow layout kicks in at the higher of
+   the two on some forms and a stacked wide form costs nothing. */
+@media (max-width: 1400px) {
   .enquire__grid { grid-template-columns: 1fr; }
 }
