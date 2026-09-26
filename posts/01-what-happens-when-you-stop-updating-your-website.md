@@ -29,9 +29,9 @@ Every one of those conversations starts with you correcting the website. That's 
 
 If you're on WordPress, your site is built out of parts: the core software, a theme, and however many plugins. Every one of them gets updated by whoever wrote it. Those updates aren't new features most of the time. They're fixes for holes somebody found.
 
-When a hole gets fixed publicly, it also gets published. That's how the process works. So the moment a security patch comes out, every unpatched site running that plugin is a known target, and they get found automatically, not by someone sitting there picking on you specifically.
+When a hole gets fixed publicly, it also gets published. That's how the process works. So the moment a security patch comes out, every unpatched site running that plugin is a known target. They get found automatically, not by someone sitting there picking on you.
 
-What follows isn't usually dramatic. You rarely get a defaced homepage. What you get is spam pages quietly injected into your site to link out to somewhere else, or redirects that only fire for visitors arriving from Google, so everything looks completely normal when you check it yourself.
+What follows isn't usually dramatic. You rarely get a defaced homepage. What you get is spam pages quietly injected into your site, linking out to somewhere else. Or redirects that only fire for visitors arriving from Google, so everything looks normal when you check it yourself.
 
 Then one of two things happens. Google flags your domain, and anyone clicking through gets a full-page red warning instead of your site. Or your host takes you offline to protect their other customers. Either way the first you hear about it is a customer asking why your website is broken.
 
@@ -61,7 +61,7 @@ This is the shift that's happened in the last couple of years, and it's the part
 
 A growing number of people don't search any more. They ask. ChatGPT, Perplexity and Google's AI answers go out and read live websites, then summarise them. A recommendation inside that summary is worth a great deal, because it arrives without a list of competitors beside it.
 
-What decides which sites get read? Freshness is a big part of it, and more heavily than in ordinary search. The numbers published on this are striking: around three quarters of the pages ChatGPT cites most were updated within the previous month, and roughly half of Perplexity's citations come from content less than three months old. One analysis put the drop-off at 40–60% of visibility for each year a page ages.
+What decides which sites get read? Freshness is a big part of it, and more heavily than in ordinary search. The published numbers are striking. Around three quarters of the pages ChatGPT cites most were updated within the previous month. Roughly half of Perplexity's citations come from content under three months old. One analysis put the drop-off at 40–60% of visibility for each year a page ages.
 
 Worth being honest about those figures: they come from companies selling AI-visibility tools, so treat them as a direction of travel rather than gospel. But every source points the same way, and it matches how these systems obviously work. They're built to answer questions about now. A site that hasn't moved in two years reads, to them, as a site that might not be trading.
 
@@ -71,7 +71,7 @@ So neglect now costs more than a slide down page two: it leaves you missing from
 
 Less than people imagine. It is a rhythm rather than a project.
 
-The technical half is unglamorous: core, theme and plugin updates applied and then checked, because an update that breaks your contact form silently is worse than no update at all. Backups that have actually been restored once, so you know they work. Uptime monitoring. SSL renewals. An eye on page speed.
+The technical half is unglamorous. Core, theme and plugin updates applied and then checked, because an update that silently breaks your contact form is worse than no update at all. Backups that have actually been restored once, so you know they work. Uptime monitoring. SSL renewals. An eye on page speed.
 
 The half that makes the money is editorial. Prices and services current. New work added. A page written for the thing customers keep phoning up to ask about. Dead links cleared. Copy tightened where the analytics show people leave.
 

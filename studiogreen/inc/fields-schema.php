@@ -322,7 +322,7 @@ function sg_schema() {
 					),
 				),
 				'close_line'     => 'Priced for what you actually need.',
-				'close_body'     => 'A full identity, a set of social and email designs, or a stack of print: tell me what you\'re after and you\'ll get a fixed price back for exactly that, not a bundled package built for someone else\'s business.',
+				'close_body'     => 'A full identity, a set of social and email designs, or a stack of print. Tell me what you\'re after and you\'ll get a fixed price for exactly that, not a bundled package built for someone else\'s business.',
 				'close_cta'      => 'Get a quote',
 				'close_cta_url'  => '{contact}',
 			)

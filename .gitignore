@@ -6,3 +6,4 @@ node_modules/
 # Handoff bundles produced by `git bundle create`. These are snapshots of this
 # repository's own history, so they must never be committed into it.
 *.bundle
+node_modules/
