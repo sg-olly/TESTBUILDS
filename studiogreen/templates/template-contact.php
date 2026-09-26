@@ -26,6 +26,11 @@ $sg_typeform = trim( sg_field( 'typeform_id' ) );
 <!-- ===== FORM ===== -->
 <main class="enquire" data-screen-label="Contact — Form">
 	<div class="wrap enquire__grid">
+		<?php if ( '' !== $sg_typeform ) : ?>
+			<div class="enquire__form">
+				<div data-tf-live="<?php echo esc_attr( $sg_typeform ); ?>" style="width:100%;height:min(80vh,760px);"></div>
+			</div>
+		<?php endif; ?>
 		<div class="enquire__direct">
 			<p><?php sg_the_field( 'direct_intro' ); ?></p>
 			<a class="t-manifesto enquire__email" href="mailto:<?php echo esc_attr( $sg_email ); ?>"><?php
@@ -34,11 +39,6 @@ $sg_typeform = trim( sg_field( 'typeform_id' ) );
 				?></a>
 			<p><?php sg_the_field( 'direct_note' ); ?></p>
 		</div>
-		<?php if ( '' !== $sg_typeform ) : ?>
-			<div class="enquire__form">
-				<div data-tf-live="<?php echo esc_attr( $sg_typeform ); ?>" style="width:100%;height:min(80vh,760px);"></div>
-			</div>
-		<?php endif; ?>
 	</div>
 </main>
 

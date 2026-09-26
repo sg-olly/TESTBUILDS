@@ -9,7 +9,11 @@
   border-top: 1px solid var(--line);
   padding-top: clamp(36px, 6vh, 72px);
 }
-.enquire__direct p { max-width: 36ch; }
+.enquire__direct p {
+  max-width: 44ch;
+  font-size: clamp(1.15rem, 1.5vw, 1.4rem);
+  line-height: 1.45;
+}
 .enquire__direct p + p { margin-top: clamp(16px, 2vh, 24px); }
 .enquire__email {
   display: inline-block;
