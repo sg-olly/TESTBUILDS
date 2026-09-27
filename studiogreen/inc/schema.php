@@ -31,11 +31,29 @@ function sg_schema_text( $text ) {
  * @return array
  */
 function sg_schema_area() {
+	/*
+	 * Named areas rather than the whole country: the studio competes locally,
+	 * and a service-area business needs no street address to say where it works.
+	 */
 	return apply_filters(
 		'sg_schema_area_served',
 		array(
-			'@type' => 'Country',
-			'name'  => 'United Kingdom',
+			array(
+				'@type' => 'City',
+				'name'  => 'Darlington',
+			),
+			array(
+				'@type' => 'AdministrativeArea',
+				'name'  => 'County Durham',
+			),
+			array(
+				'@type' => 'AdministrativeArea',
+				'name'  => 'North East England',
+			),
+			array(
+				'@type' => 'Country',
+				'name'  => 'United Kingdom',
+			),
 		)
 	);
 }

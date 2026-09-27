@@ -156,7 +156,7 @@ function sg_structured_data() {
 		'name'        => get_bloginfo( 'name' ),
 		'url'         => home_url( '/' ),
 		'description' => wp_strip_all_tags( sg_meta_description() ),
-		'areaServed'  => 'United Kingdom',
+		'areaServed'  => sg_schema_area(),
 		'priceRange'  => '££',
 	);
 
