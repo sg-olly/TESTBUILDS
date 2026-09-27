@@ -6,6 +6,7 @@
     "review": "python3 bin/copy-review.py"
   },
   "dependencies": {
+    "playwright-core": "^1.63.0",
     "write-good": "^1.0.8"
   }
 }
