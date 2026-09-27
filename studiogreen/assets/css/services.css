@@ -29,7 +29,8 @@
   color: #fff;
   padding-block: clamp(88px, 14vh, 200px);
 }
-.process__line { max-width: 40ch; margin-bottom: clamp(40px, 7vh, 88px); }
+/* ch units scale with the font, so this drops from 40ch now it is display size. */
+.process__line { max-width: 24ch; margin-bottom: clamp(40px, 7vh, 88px); }
 .process__steps {
   list-style: none;
   margin: 0;

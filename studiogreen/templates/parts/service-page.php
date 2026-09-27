@@ -78,7 +78,7 @@ if ( '' !== trim( $sg_process_line ) || $sg_process_steps ) :
 	<section class="process" data-screen-label="<?php echo esc_attr( $sg_label . ' — Process' ); ?>">
 		<div class="wrap">
 			<?php if ( '' !== trim( $sg_process_line ) ) : ?>
-				<p class="t-manifesto process__line" data-lines data-reveal-group><?php echo sg_marks( $sg_process_line ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
+				<h2 class="t-display process__line" data-lines data-reveal-group><?php echo sg_marks( $sg_process_line ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
 			<?php endif; ?>
 			<?php if ( $sg_process_steps ) : ?>
 				<ul class="process__steps">
@@ -104,7 +104,8 @@ if ( '' !== trim( $sg_close_line . $sg_close_body . $sg_close_cta ) ) :
 	<section class="page-close" data-screen-label="<?php echo esc_attr( $sg_label . ' — Closing' ); ?>">
 		<div class="wrap" data-reveal-group>
 			<?php if ( '' !== trim( $sg_close_line ) ) : ?>
-				<p class="t-manifesto page-close__line" data-lines><?php echo sg_marks( $sg_close_line ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></p>
+				<?php // A heading element, but kept at t-manifesto: it leads into the display-size CTA below, as the home page closing does. ?>
+				<h2 class="t-manifesto page-close__line" data-lines><?php echo sg_marks( $sg_close_line ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
 			<?php endif; ?>
 			<?php if ( '' !== trim( $sg_close_body ) ) : ?>
 				<p class="page-close__body"><?php echo wp_kses( $sg_close_body, sg_inline_html() ); ?></p>
