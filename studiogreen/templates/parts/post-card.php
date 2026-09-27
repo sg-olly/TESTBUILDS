@@ -23,12 +23,19 @@ $sg_has_media = has_post_thumbnail();
 		<p class="post-card__meta"><?php sg_post_meta(); ?></p>
 
 		<h2 class="post-card__title t-manifesto">
-			<?php // data-lines belongs on the anchor: the splitter rebuilds its host's contents, so a link nested inside would be discarded. ?>
-			<a href="<?php the_permalink(); ?>" data-lines><?php the_title(); ?></a>
+			<?php
+			// No data-lines here. The line reveal masks its text until an observer
+			// adds .in-view, and this anchor is the card's only link, so a reveal
+			// that does not fire leaves the card with nothing to click.
+			?>
+			<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 		</h2>
 
 		<p class="post-card__excerpt"><?php echo esc_html( sg_card_excerpt() ); ?></p>
 
-		<span class="post-card__more u-link" aria-hidden="true"><?php esc_html_e( 'Read', 'studiogreen' ); ?></span>
+		<a class="post-card__more u-link" href="<?php the_permalink(); ?>">
+			<?php esc_html_e( 'Read', 'studiogreen' ); ?>
+			<span class="screen-reader-text"><?php the_title(); ?></span>
+		</a>
 	</div>
 </article>

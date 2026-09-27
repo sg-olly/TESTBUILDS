@@ -5,9 +5,8 @@ Focus keyphrase:  website maintenance
 Meta description: Website maintenance gets skipped more than any other job. Here's what actually happens to a site left alone for two years, and what looking after it involves.
 Excerpt:          Nobody notices the month you stop. You notice about eighteen months later, when the enquiries have quietly dried up and you can't point at the reason.
 Internal links:   /web/#updates, /web/#seo, /contact/
+Paste:            Everything below the second ---. The Title above goes in WordPress's own title field, not the body.
 ---
-
-# What skipping website maintenance actually costs you
 
 Website maintenance is the first thing to fall off the list. It's not urgent, nothing is visibly broken, and there's always something louder asking for your attention. So the site gets built, it goes live, everyone's pleased with it, and then it sits there.
 

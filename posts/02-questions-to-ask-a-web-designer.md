@@ -5,9 +5,8 @@ Focus keyphrase:  questions to ask a web designer
 Meta description: The questions to ask a web designer before you sign anything: who owns the files, what happens after launch, and what "SEO included" actually means.
 Excerpt:          Most of these questions are uncomfortable to answer badly. That's the point of asking them before you've paid a deposit rather than after.
 Internal links:   /web/, /about/, /contact/
+Paste:            Everything below the second ---. The Title above goes in WordPress's own title field, not the body.
 ---
-
-# Questions to ask a web designer before you hire one
 
 Choosing who builds your website is difficult because you're being asked to judge work you can't fully assess, from someone who knows far more about it than you do. Portfolios all look good. Everyone sounds confident. The prices are miles apart and nobody explains why.
 

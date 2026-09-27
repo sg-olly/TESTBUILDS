@@ -5,9 +5,8 @@ Focus keyphrase:  how much does a website cost UK
 Meta description: How much does a website cost in the UK? Real 2026 ranges for small business builds, what moves the price, and the running costs most quotes leave out.
 Excerpt:          Everyone dodges this question, which is why you're on your fifth tab. Here are the actual numbers, and the reason the range is so wide.
 Internal links:   /web/, /web/#updates, /contact/
+Paste:            Everything below the second ---. The Title above goes in WordPress's own title field, not the body.
 ---
-
-# How much does a website cost in the UK?
 
 If you're asking how much a website costs in the UK, you've probably already read four pages that said "it depends" and then asked you to book a call. Fair enough, it does depend. But that's a useless answer when you're trying to work out whether you need £1,000 or £10,000, so here are the actual figures, and then the honest explanation of why the range is so wide.
 

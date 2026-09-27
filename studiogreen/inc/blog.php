@@ -42,9 +42,9 @@ function sg_post_categories( $post_id = null ) {
 	return array_values(
 		array_filter(
 			$terms,
-			function ( $term ) use ( $default, $terms ) {
-				// Keep the default category only when it is the sole one.
-				return (int) $term->term_id !== $default || count( $terms ) === 1;
+			function ( $term ) use ( $default ) {
+				// "Uncategorised" means nobody filed it, so it is not worth printing.
+				return (int) $term->term_id !== $default;
 			}
 		)
 	);
