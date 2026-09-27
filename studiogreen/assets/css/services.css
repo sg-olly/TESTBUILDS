@@ -29,8 +29,24 @@
   color: #fff;
   padding-block: clamp(88px, 14vh, 200px);
 }
-/* ch units scale with the font, so this drops from 40ch now it is display size. */
-.process__line { max-width: 24ch; margin-bottom: clamp(40px, 7vh, 88px); }
+/*
+ * Below the display size the service headings use, so this reads as a section
+ * heading without competing with them, and above the step titles so the block
+ * has a hierarchy. 56px at 1440.
+ */
+.process__line {
+  font-size: clamp(1.75rem, 3.9vw, 3.5rem);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  max-width: 24ch;
+  margin-bottom: clamp(28px, 4vh, 48px);
+}
+
+/* 30px at 1440, clearly under the heading. */
+.process__steps .t-manifesto {
+  font-size: clamp(1.25rem, 2.1vw, 1.875rem);
+  line-height: 1.25;
+}
 .process__steps {
   list-style: none;
   margin: 0;
@@ -41,7 +57,13 @@
   grid-template-columns: repeat(4, 1fr);
   gap: clamp(24px, 3vw, 56px);
 }
-.process__steps li > p:last-child { margin-top: 12px; }
+/* Softened rather than faded with opacity, which would dim the whole element. */
+.process__steps li > p:last-child {
+  margin-top: 10px;
+  font-size: 16px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.82);
+}
 
 @media (max-width: 900px) {
   .process__steps { grid-template-columns: 1fr 1fr; }
