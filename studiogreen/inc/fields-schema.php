@@ -539,11 +539,11 @@ function sg_schema() {
 	);
 
 	$descriptions = array(
-		'home'    => 'Studio Green is an independent marketing studio. Engaging web design & build, ongoing site updates, SEO and content, no templates, fast turnaround.',
-		'web'     => 'Web design and build, ongoing site care, and SEMrush-certified SEO. Built from scratch for one business, then kept up to date.',
-		'design'  => 'Brand identity, email and social design, print and merch. A brand that looks like you meant it, on screen and off.',
-		'about'   => 'Studio Green is an independent marketing and web design studio. Nearly five years in the trade, SEMrush-certified, and you deal with me directly.',
-		'contact' => 'Tell Studio Green about your project. Web design & build, site updates, SEO and content for small businesses and independents.',
+		'home'    => 'Independent web design studio in Darlington and the North East. Small business sites built from scratch, then kept fast and found.',
+		'web'     => 'Web design and build for small businesses in Darlington. Made from scratch, never templated, then kept working with care and SEO.',
+		'design'  => 'Logo and brand identity design in Darlington and the North East, plus email, social and print. One brand, applied consistently everywhere.',
+		'about'   => 'A one-person web design studio in Darlington. Nearly five years in the trade, and you deal with me rather than an account manager.',
+		'contact' => 'Tell me about your project and get a fixed quote back, usually within a working day. Web design, branding and SEO in Darlington.',
 		'legal'   => '',
 	);
 

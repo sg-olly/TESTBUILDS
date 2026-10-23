@@ -22,6 +22,7 @@ require_once SG_DIR . '/inc/fields.php';
 require_once SG_DIR . '/inc/seo.php';
 require_once SG_DIR . '/inc/seo-analysis.php';
 require_once SG_DIR . '/inc/schema.php';
+require_once SG_DIR . '/inc/llms.php';
 require_once SG_DIR . '/inc/security.php';
 require_once SG_DIR . '/inc/redirects.php';
 require_once SG_DIR . '/inc/install.php';
