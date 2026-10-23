@@ -333,11 +333,38 @@
     }
   })();
 
+  /* ---- Analytics, only once the visitor has accepted ---- */
+  function sgLoadAnalytics() {
+    if (window.__sgGaLoaded) return;
+
+    var meta = document.querySelector('meta[name="sg-ga-id"]');
+    var id = meta && meta.getAttribute("content");
+    if (!id) return;
+
+    window.__sgGaLoaded = true;
+
+    // The loader is an external file and the config runs from here, so no
+    // inline script is needed and the CSP can keep refusing them.
+    var s = document.createElement("script");
+    s.async = true;
+    s.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(id);
+    document.head.appendChild(s);
+
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag("js", new Date());
+    window.gtag("config", id, { anonymize_ip: true });
+  }
+
   /* ---- Cookie consent banner (site-wide) ---- */
   (function cookieBanner() {
     var KEY = "gs.cookieConsent";
-    try { if (localStorage.getItem(KEY)) return; } catch (e) {}
-    
+    var saved = null;
+    try { saved = localStorage.getItem(KEY); } catch (e) {}
+
+    if (saved === "accepted") sgLoadAnalytics();
+    if (saved) return;
+
     var cookiesUrl = (window.SGData && window.SGData.cookiesUrl) || "/cookies/";
     var banner = document.createElement("div");
     banner.className = "cookie-banner";
@@ -363,7 +390,10 @@
     banner.addEventListener("click", function (e) {
       var btn = e.target.closest ? e.target.closest("[data-cookie]") : null;
       if (!btn) return;
-      try { localStorage.setItem(KEY, btn.getAttribute("data-cookie")); } catch (e2) {}
+      var choice = btn.getAttribute("data-cookie");
+      try { localStorage.setItem(KEY, choice); } catch (e2) {}
+      // Accepting starts analytics now rather than on the next page.
+      if (choice === "accepted") sgLoadAnalytics();
       banner.classList.remove("is-visible");
       banner.classList.add("is-leaving");
       setTimeout(function () { if (banner.parentNode) banner.parentNode.removeChild(banner); }, 600);
