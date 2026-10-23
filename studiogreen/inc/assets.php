@@ -107,13 +107,17 @@ function sg_enqueue_assets() {
 	 * @param string $src Script URL, or '' to disable smooth scrolling.
 	 */
 	$lenis = apply_filters( 'sg_lenis_src', 'https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js' );
-	$deps  = array();
 	if ( $lenis ) {
 		wp_enqueue_script( 'sg-lenis', $lenis, array(), null, true ); // phpcs:ignore WordPress.WP.EnqueuedResourceParameters.MissingVersion
-		$deps[] = 'sg-lenis';
+		wp_script_add_data( 'sg-lenis', 'sg_async', true );
 	}
 
-	wp_enqueue_script( 'sg-site', SG_URI . '/assets/js/site.js', $deps, sg_asset_version( 'assets/js/site.js' ), true );
+	/*
+	 * Deliberately not dependent on Lenis. Scripts execute in order, so naming it
+	 * as a dependency put a third-party CDN in front of the script that reveals
+	 * the page's headings. site.js starts Lenis if and when it turns up.
+	 */
+	wp_enqueue_script( 'sg-site', SG_URI . '/assets/js/site.js', array(), sg_asset_version( 'assets/js/site.js' ), true );
 
 	$contact_id = get_queried_object_id();
 	if (
@@ -130,6 +134,23 @@ function sg_enqueue_assets() {
 	);
 }
 add_action( 'wp_enqueue_scripts', 'sg_enqueue_assets' );
+
+/**
+ * Mark scripts flagged with sg_async as async, so a slow one cannot hold up
+ * the scripts printed after it.
+ *
+ * @param string $tag    Script tag.
+ * @param string $handle Script handle.
+ * @return string
+ */
+function sg_async_scripts( $tag, $handle ) {
+	if ( ! wp_scripts()->get_data( $handle, 'sg_async' ) || false !== strpos( $tag, ' async' ) ) {
+		return $tag;
+	}
+
+	return str_replace( '<script ', '<script async ', $tag );
+}
+add_filter( 'script_loader_tag', 'sg_async_scripts', 10, 2 );
 
 /**
  * Preconnect to the Fontshare hosts, so the webfont starts loading sooner.

@@ -28,6 +28,24 @@
 .enquire__email:hover { text-decoration-color: var(--lime); }
 .enquire__direct p:last-child { margin-top: clamp(16px, 2.5vh, 28px); }
 .enquire__form { min-width: 0; }
-.enquire__form [data-tf-live] { width: 100%; }
+
+.enquire__form [data-tf-live] {
+  width: 100%;
+  /* vh on a phone measures the viewport with the address bar hidden, so the
+     foot of the form ends up underneath it. svh is the height with the bar
+     showing; the first line is the fallback where svh is unsupported. */
+  height: min(80vh, 760px);
+  height: min(80svh, 760px);
+}
+
+@media (max-width: 700px) {
+  .enquire__form [data-tf-live] {
+    /* Typeform needs room for a question, its input and the button, so the
+       floor matters more than the percentage on a short screen. */
+    height: 78svh;
+    min-height: 520px;
+  }
+}
+
 .enquire__form iframe { width: 100% !important; height: 100% !important; border: 0; }
 

@@ -28,7 +28,8 @@ $sg_typeform = trim( sg_field( 'typeform_id' ) );
 	<div class="wrap enquire__grid">
 		<?php if ( '' !== $sg_typeform ) : ?>
 			<div class="enquire__form">
-				<div data-tf-live="<?php echo esc_attr( $sg_typeform ); ?>" style="width:100%;height:min(80vh,760px);"></div>
+				<?php // Sized in contact.css, not inline: an inline height cannot be overridden at a breakpoint. ?>
+				<div data-tf-live="<?php echo esc_attr( $sg_typeform ); ?>"></div>
 			</div>
 		<?php endif; ?>
 		<div class="enquire__direct">

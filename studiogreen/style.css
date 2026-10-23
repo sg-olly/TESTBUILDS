@@ -169,8 +169,17 @@ p { margin: 0; }
 .reveal-line { display: block; overflow: hidden; padding-bottom: 0.12em; margin-bottom: -0.12em; }
 .reveal-line > span { display: block; will-change: transform; }
 
-/* Hidden until site.js has re-lined it, so lines don't flash then re-animate. */
-.js-reveal [data-lines]:not(.sg-split) { visibility: hidden; }
+/*
+ * Hidden until site.js has re-lined it, so lines don't flash then re-animate.
+ * The animation is the failsafe: it reveals the text after 2s whatever happens
+ * to the JS. Without it, a script that never loads leaves the page's headings
+ * and leads invisible permanently, not briefly.
+ */
+.js-reveal [data-lines]:not(.sg-split) {
+  visibility: hidden;
+  animation: sg-reveal-failsafe 0s linear 2s forwards;
+}
+@keyframes sg-reveal-failsafe { to { visibility: visible; } }
 .js-reveal .reveal-line > span { transform: translateY(115%); transition: transform .9s var(--ease); }
 .js-reveal .in-view .reveal-line > span { transform: none; }
 @media (prefers-reduced-motion: reduce) {

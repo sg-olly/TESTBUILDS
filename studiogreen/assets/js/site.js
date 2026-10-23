@@ -178,8 +178,12 @@
   (function motionSystem() {
     var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    if (!reduce && window.Lenis) {
-      
+    // Lenis loads async from a CDN, so it may arrive after this runs, or never.
+    var lenisStarted = false;
+    function startLenis() {
+      if (reduce || lenisStarted || !window.Lenis) return;
+      lenisStarted = true;
+
       // Native smooth scrolling fights Lenis; Lenis drives it from here.
       document.documentElement.style.scrollBehavior = "auto";
 
@@ -187,6 +191,8 @@
       var raf = function (t) { lenis.raf(t); requestAnimationFrame(raf); };
       requestAnimationFrame(raf);
     }
+    startLenis();
+    window.addEventListener("load", startLenis);
 
     if (reduce) return;
 
